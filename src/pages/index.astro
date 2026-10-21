@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import biz from '../data/business.json';
+const primaries = (await getCollection('services', ({ data }) => !data.draft && data.level === 'primary')).sort((a, b) => a.data.order - b.data.order);
+const landlords = (await getCollection('services', ({ data }) => !data.draft && data.parent === 'property-management')).sort((a, b) => a.data.order - b.data.order);
+---
+<Base title="Cleaning Services in Fairview, Lagro & Novaliches, QC | FreshStart" description="House, condo, rental and small business cleaning in Fairview, Lagro and Novaliches, Quezon City. Fixed prices with transport included, photo reports. From ₱999.">
+  <section class="hero">
+    <div class="wrap">
+      <h1>Cleaning services in Fairview, Lagro and Novaliches</h1>
+      <p>Trained, NBI-cleared cleaners for houses, condos, rentals and small businesses in northern Quezon City. Fixed prices with transport included, a before-and-after photo report on every job, and a free re-clean within 48 hours.</p>
+      <p class="price" style="font-size:1.4rem;color:#FF9A5C">Starter Clean ₱999 · deep cleans from ₱2,890</p>
+      <p><a class="btn btn-primary" href={biz.messengerUrl}>Book on Messenger</a> <a class="btn btn-secondary" href="/prices/" style="background:#0A3834">See all prices</a></p>
+    </div>
+  </section>
+  <div class="wrap">
+    <h2>What we do</h2>
+    <div class="cards">
+      {primaries.map((p) => (
+        <a class="card" href={`/${p.data.url}/`}><h3>{p.data.menuLabel ?? p.data.h1}</h3><p style="margin:0 0 6px">{p.data.hero}</p><span class="price">{p.data.priceFrom}</span></a>
+      ))}
+      {landlords.map((p) => (
+        <a class="card" href={`/${p.data.url}/`}><h3>{p.data.menuLabel ?? p.data.h1}</h3><p style="margin:0 0 6px">{p.data.hero}</p><span class="price">{p.data.priceFrom}</span></a>
+      ))}
+    </div>
+    <h2>Why households and businesses choose FreshStart</h2>
+    <ul>
+      <li><strong>Fixed prices, transport included</strong> in {biz.areas.join(', ')}. No "message us for rates".</li>
+      <li><strong>The same trained team</strong> every visit, paid above minimum wage with full benefits.</li>
+      <li><strong>Proof on every job:</strong> before-and-after photos sent to you on Messenger or Viber.</li>
+      <li><strong>48-hour re-clean guarantee</strong> if anything on the checklist was missed.</li>
+      <li><strong>Local crews</strong> who live in northern Quezon City, so we arrive on time.</li>
+    </ul>
+    <h2>How booking works</h2>
+    <ol>
+      <li>Message us your home size or business, the service and your preferred date.</li>
+      <li>Get a fixed quote, usually within the hour.</li>
+      <li>Confirm with a 50% deposit for jobs over ₱3,000 (GCash, Maya or bank transfer).</li>
+      <li>We clean, walk through it with you and send the photo report. Then you pay the balance.</li>
+    </ol>
+  </div>
+</Base>

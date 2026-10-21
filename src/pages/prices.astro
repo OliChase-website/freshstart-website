@@ -1,0 +1,39 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import biz from '../data/business.json';
+const all = await getCollection('services', ({ data }) => !data.draft);
+const primaries = all.filter((s) => s.data.level === 'primary').sort((a, b) => a.data.order - b.data.order);
+const orphans = all.filter((s) => s.data.level === 'secondary' && !primaries.some((p) => p.data.url === s.data.parent));
+---
+<Base title={`Cleaning Service Prices in Quezon City (${biz.pricesUpdated}) | FreshStart`} description="All FreshStart cleaning prices for Fairview, Lagro and Novaliches: house cleaning, deep cleaning, move-out, Airbnb, after-party and business cleaning. Transport included.">
+  <section class="hero"><div class="wrap"><h1>Our prices</h1><p>Fixed prices, updated {biz.pricesUpdated}. {biz.transportNote}</p></div></section>
+  <div class="wrap">
+    {primaries.map((p) => (
+      <section>
+        <h2><a href={`/${p.data.url}/`}>{p.data.menuLabel ?? p.data.h1}</a></h2>
+        <div class="table-box"><table>
+          <tr><th>Service</th><th>Price</th></tr>
+          {all.filter((c) => c.data.parent === p.data.url).sort((a, b) => a.data.order - b.data.order).map((c) => (
+            <tr><td><a href={`/${c.data.url}/`}>{c.data.menuLabel ?? c.data.h1}</a></td><td class="p">{c.data.priceFrom}</td></tr>
+          ))}
+        </table></div>
+      </section>
+    ))}
+    {orphans.length > 0 && (
+      <section>
+        <h2>For landlords, owners and hosts</h2>
+        <div class="table-box"><table>
+          <tr><th>Service</th><th>Price</th></tr>
+          {orphans.map((c) => (<tr><td><a href={`/${c.data.url}/`}>{c.data.menuLabel ?? c.data.h1}</a></td><td class="p">{c.data.priceFrom}</td></tr>))}
+        </table></div>
+      </section>
+    )}
+    <h2>Surcharges and discounts</h2>
+    <ul>
+      <li>Sundays and special non-working days +30%; regular holidays +100%; work after 10 PM +15%; same-day booking +₱300.</li>
+      <li>Landlord Plan: 10% off every turnover for 3+ turnovers a year. Prepay a regular plan for 3 months: 5% off.</li>
+      <li>One discount per booking. Every payment gets an official invoice; our cleaners never collect cash.</li>
+    </ul>
+  </div>
+</Base>

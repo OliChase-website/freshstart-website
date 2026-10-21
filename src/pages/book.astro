@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import biz from '../data/business.json';
+---
+<Base title="Book a Cleaning in Fairview, Lagro & Novaliches | FreshStart" description="Book a FreshStart cleaning on Messenger, Viber or by phone. Send your home size, service and date and get a fixed price, usually within the hour.">
+  <section class="hero"><div class="wrap"><h1>Book a clean or get a quote</h1><p>Message us and we reply with a fixed price, usually within the hour, between 7 AM and 9 PM.</p>
+    <p><a class="btn btn-primary" href={biz.messengerUrl}>Book on Messenger</a> <a class="btn btn-secondary" href={`tel:${biz.phone}`} style="background:#0A3834">Call or Viber {biz.phoneDisplay}</a></p></div></section>
+  <div class="wrap">
+    <h2>To quote quickly, tell us</h2>
+    <ol>
+      <li>Your name and barangay or village</li>
+      <li>The service you need (house cleaning, deep clean, move-out, Airbnb turnover, office cleaning...)</li>
+      <li>The size of the place (sqm, or bedrooms, bathrooms and floors)</li>
+      <li>Your preferred date and time</li>
+      <li>3 to 5 photos of the area</li>
+    </ol>
+    <!-- The enquiry form connects to the AI enquiry automation once its endpoint exists (set the action URL). -->
+  </div>
+</Base>

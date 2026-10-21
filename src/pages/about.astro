@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import biz from '../data/business.json';
+---
+<Base title="About FreshStart Cleaning Co. | Trained, Local Crews in QC" description="How FreshStart hires, trains and pays its cleaners, and the promises behind every job: fixed prices, photo reports, a damage guarantee and a 48-hour re-clean.">
+  <section class="hero"><div class="wrap"><h1>About FreshStart Cleaning Co.</h1><p>{biz.tagline} We are a northern Quezon City team cleaning homes, rentals and small businesses in {biz.areas.join(', ')}.</p></div></section>
+  <div class="wrap">
+    <h2>How we hire and train</h2>
+    <p>Every cleaner passes an interview, a paid practical test, NBI and barangay clearance and a medical check, then three days of paid training on our checklists, chemical safety and client privacy.</p>
+    <h2>How we treat our team</h2>
+    <p>Our cleaners are employees, paid above the NCR minimum wage with SSS, PhilHealth, Pag-IBIG and 13th month pay. Stable, fairly paid crews do better work, and you get the same faces every visit.</p>
+    <h2>Our promises</h2>
+    <ul>
+      <li>Fixed prices with transport included in our service areas.</li>
+      <li>A before-and-after photo report after every job.</li>
+      <li>A free re-clean within 48 hours if anything on the checklist was missed.</li>
+      <li>Damage reported immediately with photos, and repaired or reimbursed.</li>
+      <li>No photos of your family, documents or personal items, ever.</li>
+    </ul>
+  </div>
+</Base>

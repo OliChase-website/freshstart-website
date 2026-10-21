@@ -1,0 +1,20 @@
+{
+  "name": "FreshStart Cleaning Co.",
+  "tagline": "Every space deserves a fresh start.",
+  "url": "https://www.example.com",
+  "phone": "+63XXXXXXXXXX",
+  "phoneDisplay": "[Mobile number]",
+  "viber": "[Viber number]",
+  "email": "[email@yourdomain]",
+  "messengerUrl": "https://m.me/[facebook-page-username]",
+  "facebook": "https://www.facebook.com/[page]",
+  "instagram": "https://www.instagram.com/[handle]",
+  "tiktok": "https://www.tiktok.com/@[handle]",
+  "gbp": "[Google Maps link once verified]",
+  "hours": "Monday to Saturday, 7:00 AM to 7:00 PM",
+  "openingHours": ["Mo-Sa 07:00-19:00"],
+  "city": "Quezon City",
+  "areas": ["Fairview", "North Fairview", "Greater Lagro", "Kaligayahan", "Pasong Putik", "Novaliches"],
+  "transportNote": "Transport included in Fairview, North Fairview, Greater Lagro, Kaligayahan, Pasong Putik and Novaliches. Elsewhere in Quezon City +₱200.",
+  "pricesUpdated": "October 2026"
+}

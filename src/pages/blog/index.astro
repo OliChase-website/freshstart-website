@@ -1,0 +1,12 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+<Base title="Cleaning Guides and Price Guides for Quezon City | FreshStart" description="Practical guides on house cleaning, deep cleaning, move-out cleaning and prices in Quezon City from the FreshStart team.">
+  <div class="wrap"><h1>Guides</h1>
+    {posts.length === 0 ? <p>Guides are coming soon.</p> : (
+      <div class="cards">{posts.map((p) => (<a class="card" href={`/blog/${p.id}/`}><h3>{p.data.h1}</h3><p>{p.data.description}</p></a>))}</div>
+    )}
+  </div>
+</Base>

@@ -1,0 +1,120 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import biz from '../data/business.json';
+
+export async function getStaticPaths() {
+  const all = await getCollection('services', ({ data }) => !data.draft);
+  return all.map((entry) => ({ params: { slug: entry.data.url }, props: { entry, all } }));
+}
+
+const { entry, all } = Astro.props;
+const d = entry.data;
+const { Content } = await render(entry);
+const parent = d.parent ? all.find((s) => s.data.url === d.parent) : undefined;
+const children = all
+  .filter((s) => s.data.parent === d.url)
+  .sort((a, b) => a.data.order - b.data.order);
+const related = d.related
+  .map((u) => all.find((s) => s.data.url === u))
+  .filter((s) => s !== undefined);
+const pageUrl = new URL(`/${d.url}/`, Astro.site).href;
+
+const crumbs = [{ name: 'Home', url: '/' }];
+if (parent) crumbs.push({ name: parent.data.menuLabel ?? parent.data.h1, url: `/${parent.data.url}/` });
+crumbs.push({ name: d.menuLabel ?? d.h1, url: `/${d.url}/` });
+
+const jsonLd: object[] = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: d.serviceType,
+    name: d.h1,
+    url: pageUrl,
+    provider: { '@id': new URL('/#business', Astro.site).href },
+    areaServed: biz.areas.map((a) => ({ '@type': 'Place', name: `${a}, ${biz.city}` })),
+    ...(d.offerPrice ? { offers: { '@type': 'Offer', price: String(d.offerPrice), priceCurrency: 'PHP' } } : {}),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: crumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: new URL(c.url, Astro.site).href })),
+  },
+];
+if (d.faqs.length) {
+  jsonLd.push({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: d.faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+  });
+}
+const msg = encodeURIComponent(`Hi FreshStart! I'd like a quote for ${d.menuLabel ?? d.h1}.`);
+---
+<Base title={d.title} description={d.description} jsonLd={jsonLd}>
+  <section class="hero">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        {crumbs.map((c, i) => (i < crumbs.length - 1 ? <><a href={c.url}>{c.name}</a> › </> : <span>{c.name}</span>))}
+      </nav>
+      <h1>{d.h1}</h1>
+      <p>{d.hero}</p>
+      <p class="price" style="font-size:1.4rem;color:#FF9A5C">{d.priceFrom}</p>
+      <p>
+        <a class="btn btn-primary" href={`${biz.messengerUrl}?text=${msg}`}>Book on Messenger</a>
+        <a class="btn btn-secondary" href="/book/" style="background:#0A3834">Get a quote</a>
+      </p>
+      <div class="trust"><span>Transport included</span><span>Trained, NBI-cleared crew</span><span>Photo report</span><span>48-hour re-clean</span></div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    {children.length > 0 && (
+      <section>
+        <h2>Our {(d.menuLabel ?? d.h1).toLowerCase()} services</h2>
+        <div class="cards">
+          {children.map((c) => (
+            <a class="card" href={`/${c.data.url}/`}>
+              <h3>{c.data.menuLabel ?? c.data.h1}</h3>
+              <p style="margin:0 0 6px">{c.data.hero}</p>
+              <span class="price">{c.data.priceFrom}</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <article class="content">
+      <Content />
+    </article>
+
+    <p style="font-size:15px;color:#4F6461">{biz.transportNote} Prices updated {biz.pricesUpdated}.</p>
+
+    {d.faqs.length > 0 && (
+      <section class="faq">
+        <h2>Frequently asked questions</h2>
+        <dl>
+          {d.faqs.map((f) => (<><dt>{f.q}</dt><dd>{f.a}</dd></>))}
+        </dl>
+      </section>
+    )}
+
+    {related.length > 0 && (
+      <section>
+        <h2>Related services</h2>
+        <div class="cards">
+          {related.map((r) => (
+            <a class="card" href={`/${r!.data.url}/`}><h3>{r!.data.menuLabel ?? r!.data.h1}</h3><span class="price">{r!.data.priceFrom}</span></a>
+          ))}
+        </div>
+      </section>
+    )}
+  </div>
+
+  <section class="band">
+    <div class="wrap">
+      <h2 style="margin-top:0">Ready for a fresh start?</h2>
+      <p>Send us your home size, the service and your preferred date. We reply with a fixed price, usually within the hour.</p>
+      <p><a class="btn btn-primary" href={`${biz.messengerUrl}?text=${msg}`}>Book on Messenger</a> <a class="btn btn-secondary" href={`tel:${biz.phone}`}>Call {biz.phoneDisplay}</a></p>
+    </div>
+  </section>
+</Base>
