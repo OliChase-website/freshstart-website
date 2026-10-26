@@ -26,7 +26,20 @@ jobs:
       - name: Build (fails on any SEO field that breaks the rules)
         run: npm run build
 
+      - name: Check the Hostinger secrets are set
+        id: secrets
+        env:
+          SSH_KEY: ${{ secrets.HOSTINGER_SSH_KEY }}
+        run: |
+          if [ -z "$SSH_KEY" ]; then
+            echo "::warning::Hostinger secrets not set yet. The site built fine but was not uploaded."
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Upload to Hostinger over SSH
+        if: steps.secrets.outputs.ready == 'true'
         env:
           SSH_KEY: ${{ secrets.HOSTINGER_SSH_KEY }}
           SSH_HOST: ${{ secrets.HOSTINGER_HOST }}
@@ -43,4 +56,5 @@ jobs:
             dist/ "$SSH_USER@$SSH_HOST:$REMOTE_PATH/"
 
       - name: Check the live site answers
+        if: steps.secrets.outputs.ready == 'true'
         run: curl -fsS -o /dev/null -w "%{http_code}\n" https://freshstartcleaningco.com.ph/
