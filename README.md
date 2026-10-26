@@ -51,7 +51,18 @@ Each page automatically gets: canonical URL, Open Graph tags, LocalBusiness + Se
 
 The FreshStart Price Book is the source of truth. When a price changes, update the service page(s), the Google Business Profile service, the Facebook price card and the workbook on the same day, and change `pricesUpdated` in `business.json`.
 
-## Deploy (Cloudflare Pages)
+## Deploy (Hostinger, via GitHub Actions)
 
-- Framework preset: Astro · Build command: `npm run build` · Output directory: `dist` · Environment variable: `NODE_VERSION=22`
-- Production branch: `main`. Other branches get preview URLs, so edits can be checked before merging.
+Every push to `main` builds the site and uploads `dist/` to Hostinger over SSH (`.github/workflows/deploy.yml`). A failed SEO check stops the deploy, so the live site never breaks.
+
+Repository secrets (GitHub → Settings → Secrets and variables → Actions):
+
+| Secret | Value (from Hostinger hPanel → Advanced → SSH Access) |
+|---|---|
+| `HOSTINGER_HOST` | SSH IP address |
+| `HOSTINGER_PORT` | SSH port (usually 65002) |
+| `HOSTINGER_USER` | SSH username (u123456789) |
+| `HOSTINGER_PATH` | `/home/<username>/domains/freshstartcleaningco.com.ph/public_html` |
+| `HOSTINGER_SSH_KEY` | The private key of the deploy key pair; its public key is added in hPanel → SSH Access → SSH keys |
+
+`public/.htaccess` forces HTTPS and the bare domain, adds trailing slashes and serves the 404 page.
