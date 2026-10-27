@@ -66,6 +66,6 @@ Cloudflare build settings (Worker → Settings → Build):
 
 `wrangler.jsonc` tells Cloudflare to serve `dist/` as static files, with trailing-slash URLs and `404.html` for missing pages. `public/_headers` sets long caching for Astro's fingerprinted files.
 
-Custom domains: `freshstartcleaningco.com.ph` (main) and `www.freshstartcleaningco.com.ph`, with a Cloudflare redirect rule sending www to the bare domain. The domain's DNS is on Cloudflare, so the Google Workspace records (MX, SPF, DKIM, DMARC) live there too.
+Custom domains: `freshstartcleaningqc.com` (main) and `www.freshstartcleaningqc.com`, with a Cloudflare redirect rule sending www to the bare domain. The domain's DNS is on Cloudflare, so the Google Workspace records (MX, SPF, DKIM, DMARC) live there too.
 
 `.github/workflows/build-check.yml` runs the same build on GitHub so problems show as a red X on the commit.
