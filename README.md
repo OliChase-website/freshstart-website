@@ -51,21 +51,21 @@ Each page automatically gets: canonical URL, Open Graph tags, LocalBusiness + Se
 
 The FreshStart Price Book is the source of truth. When a price changes, update the service page(s), the Google Business Profile service, the Facebook price card and the workbook on the same day, and change `pricesUpdated` in `business.json`.
 
-## Deploy (Cloudflare Pages, free)
+## Deploy (Cloudflare Workers, free)
 
-Cloudflare Pages is connected to this repository and rebuilds the site on every push to `main`, usually live within a minute or two. A build that fails (for example an SEO field over its length limit) is not published, so the live site never breaks.
+The Cloudflare Worker `freshstart-website` is connected to this repository and rebuilds the site on every push to `main`, usually live within a minute or two. A build that fails (for example an SEO field over its length limit) is not published, so the live site never breaks.
 
-Cloudflare Pages build settings:
+Cloudflare build settings (Worker → Settings → Build):
 
 | Setting | Value |
 |---|---|
-| Framework preset | Astro |
 | Build command | `npm run build` |
-| Build output directory | `dist` |
-| Environment variable | `NODE_VERSION` = `22` |
+| Deploy command | `npx wrangler deploy` |
+| Root directory | `/` |
+| Build variable | `NODE_VERSION` = `22` |
+
+`wrangler.jsonc` tells Cloudflare to serve `dist/` as static files, with trailing-slash URLs and `404.html` for missing pages. `public/_headers` sets long caching for Astro's fingerprinted files.
 
 Custom domains: `freshstartcleaningco.com.ph` (main) and `www.freshstartcleaningco.com.ph`, with a Cloudflare redirect rule sending www to the bare domain. The domain's DNS is on Cloudflare, so the Google Workspace records (MX, SPF, DKIM, DMARC) live there too.
-
-`public/_headers` sets long caching for Astro's fingerprinted files. Pages serves `404.html` for missing pages and handles trailing slashes on its own.
 
 `.github/workflows/build-check.yml` runs the same build on GitHub so problems show as a red X on the commit.

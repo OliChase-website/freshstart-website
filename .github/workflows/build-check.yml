@@ -1,6 +1,6 @@
 name: Build check
 
-# Cloudflare Pages builds and publishes the site itself on every push to main.
+# Cloudflare builds and publishes the site itself on every push to main.
 # This check runs the same build so a broken page or an SEO field that breaks
 # the rules shows up as a red X on the commit.
 on:
