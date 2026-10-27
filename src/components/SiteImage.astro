@@ -1,19 +1,21 @@
 ---
 // Renders the image for one slot in src/data/images.json, as responsive AVIF/WebP with a JPEG
 // fallback. Renders nothing at all until the slot's file exists in src/assets/images/.
+// With `fallback`, a sub-service without its own photo borrows its parent service's photo.
 import { Picture } from 'astro:assets';
-import { findImage } from '../lib/images';
+import { findImage, findImageOrParent } from '../lib/images';
 
 interface Props {
   slot: string;
   priority?: boolean;   // true for the hero: loads immediately instead of lazily
+  fallback?: boolean;   // use the parent service's image when this slot has none
   sizes?: string;
   class?: string;
 }
-const { slot, priority = false, sizes = '(min-width: 900px) 520px, 100vw', class: className } = Astro.props;
-const img = findImage(slot);
-const widths = img ? [480, 800, 1200, 1600].filter((w) => w <= img.src.width) : [];
-if (img && widths.length === 0) widths.push(img.src.width);
+const { slot, priority = false, fallback = false, sizes = '(min-width: 900px) 520px, 100vw', class: className } = Astro.props;
+const img = fallback ? findImageOrParent(slot) : findImage(slot);
+const widths = img ? [400, 640, 960, 1280].filter((w) => w < img.src.width) : [];
+if (img) widths.push(img.src.width);
 ---
 {img && (
   <Picture

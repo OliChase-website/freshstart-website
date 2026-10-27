@@ -24,6 +24,17 @@ export function findImage(slot: string): { src: ImageMetadata; alt: string } | n
   return src ? { src, alt: s.alt } : null;
 }
 
+/**
+ * The slot's own image, or, for a sub-service with no photo yet (e.g. "house-cleaning/deep-cleaning"),
+ * its parent service's image ("house-cleaning"). Used for heroes and cards; schema and link previews
+ * still use only the page's own image.
+ */
+export function findImageOrParent(slot: string): { src: ImageMetadata; alt: string } | null {
+  const own = findImage(slot);
+  if (own || !slot.includes('/')) return own;
+  return findImage(slot.split('/')[0]);
+}
+
 /** Absolute URL of a 1200x630 social-share image for the slot, falling back to the site default. */
 export async function shareImage(site: URL, slot?: string): Promise<{ url: string; alt: string }> {
   const img = (slot && findImage(slot)) || findImage('og-default');

@@ -4,57 +4,103 @@ import Base from '../layouts/Base.astro';
 import CtaButtons from '../components/CtaButtons.astro';
 import SiteImage from '../components/SiteImage.astro';
 import AreasServed from '../components/AreasServed.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import Faqs from '../components/Faqs.astro';
 import biz from '../data/business.json';
 import { findImage } from '../lib/images';
-const primaries = (await getCollection('services', ({ data }) => !data.draft && data.level === 'primary')).sort((a, b) => a.data.order - b.data.order);
-const landlords = (await getCollection('services', ({ data }) => !data.draft && data.parent === 'property-management')).sort((a, b) => a.data.order - b.data.order);
+const live = await getCollection('services', ({ data }) => !data.draft);
+const primaries = live.filter(({ data }) => data.level === 'primary').sort((a, b) => a.data.order - b.data.order);
+const landlords = live.filter(({ data }) => data.parent === 'property-management').sort((a, b) => a.data.order - b.data.order);
+const childrenOf = (url: string) => live.filter((s) => s.data.parent === url).sort((a, b) => a.data.order - b.data.order);
+const houseFaqs = (live.find((s) => s.data.url === 'house-cleaning')?.data.faqs ?? []).slice(0, 5);
 const hasHero = findImage('home-hero') !== null;
 const hasBooking = findImage('home-booking') !== null;
 ---
 <Base title="Cleaning Services in Fairview & Novaliches, QC | FreshStart" description="House, condo, rental and small business cleaning in Fairview, Lagro and Novaliches, Quezon City. Fixed prices with transport and photo reports. From ₱999." ogSlot="home-hero">
-  <section class="hero">
-    <div class={`wrap${hasHero ? ' hero-grid' : ''}`}>
-      <div>
-        <h1>Cleaning services in Fairview, Lagro and Novaliches</h1>
-        <p>Trained, NBI-cleared cleaners for houses, condos, rentals and small businesses in northern Quezon City. Fixed prices with transport included, a before-and-after photo report on every job, and a free re-clean within 48 hours.</p>
-        <p class="area-line">Serving {biz.areas.join(', ')}, {biz.city}</p>
-        <p class="price" style="font-size:1.4rem;color:#FF9A5C">Starter Clean ₱999 · deep cleans from ₱2,890</p>
-        <p class="cta-row"><CtaButtons dark /><a class="btn btn-secondary" href="/prices/" style="background:#0A3834">See all prices</a></p>
-      </div>
-      {hasHero && <SiteImage slot="home-hero" priority class="hero-img" />}
+  <section class={hasHero ? 'phero' : 'hero'}>
+    {hasHero && <div class="phero-media"><SiteImage slot="home-hero" priority sizes="(min-width: 900px) 50vw, 100vw" /></div>}
+    <div class={hasHero ? 'wrap phero-body' : 'wrap'}>
+      <h1>Cleaning services in Fairview, Lagro and Novaliches</h1>
+      <p class="phero-lede">Trained, NBI-cleared cleaners for houses, condos, rentals and small businesses in northern Quezon City. Fixed prices with transport included, a before-and-after photo report on every job, and a free re-clean within 48 hours.</p>
+      <p class="area-line">Serving {biz.areas.join(', ')}, {biz.city}</p>
+      <p class="pricetag">Starter Clean ₱999 <small>· deep cleans from ₱2,890</small></p>
+      <p class="cta-row"><CtaButtons dark /><a class="btn btn-secondary" href="/prices/" style="background:#0A3834">See all prices</a></p>
     </div>
   </section>
+
+  <TrustStrip />
+
   <div class="wrap">
-    <h2>What we do</h2>
-    <div class="cards">
-      {primaries.map((p) => (
-        <a class="card" href={`/${p.data.url}/`}><h3>{p.data.menuLabel ?? p.data.h1}</h3><p style="margin:0 0 6px">{p.data.hero}</p><span class="price">{p.data.priceFrom}</span></a>
-      ))}
-      {landlords.map((p) => (
-        <a class="card" href={`/${p.data.url}/`}><h3>{p.data.menuLabel ?? p.data.h1}</h3><p style="margin:0 0 6px">{p.data.hero}</p><span class="price">{p.data.priceFrom}</span></a>
-      ))}
-    </div>
-    <h2>Why households and businesses choose FreshStart</h2>
-    <ul>
-      <li><strong>Fixed prices, transport included</strong> in {biz.areas.join(', ')}. No "message us for rates".</li>
-      <li><strong>The same trained team</strong> every visit, paid above minimum wage with full benefits.</li>
-      <li><strong>Proof on every job:</strong> before-and-after photos sent to you on Messenger or Viber.</li>
-      <li><strong>48-hour re-clean guarantee</strong> if anything on the checklist was missed.</li>
-      <li><strong>Local crews</strong> who live in northern Quezon City, so we arrive on time.</li>
-    </ul>
-    <div class={hasBooking ? 'split' : ''}>
+    <section class="section">
+      <h2>What we do</h2>
+      <div class="tiles tiles-wide">
+        {primaries.map((p) => (
+          <ServiceCard url={p.data.url} label={p.data.menuLabel ?? p.data.h1} blurb={p.data.hero} price={p.data.priceFrom} wide />
+        ))}
+      </div>
+      {landlords.length > 0 && (
+        <>
+          <h3>For landlords, owners and hosts</h3>
+          <div class="tiles">
+            {landlords.map((p) => (
+              <ServiceCard url={p.data.url} label={p.data.menuLabel ?? p.data.h1} blurb={p.data.hero} price={p.data.priceFrom} />
+            ))}
+          </div>
+        </>
+      )}
+    </section>
+
+    <section class="section">
+      <h2>Why households and businesses choose FreshStart</h2>
+      <ul class="checks">
+        <li><strong>Fixed prices, transport included</strong> in {biz.areas.join(', ')}. No "message us for rates".</li>
+        <li><strong>The same trained team</strong> every visit, paid above minimum wage with full benefits.</li>
+        <li><strong>Proof on every job:</strong> before-and-after photos sent to you on Messenger or Viber.</li>
+        <li><strong>48-hour re-clean guarantee</strong> if anything on the checklist was missed.</li>
+        <li><strong>Local crews</strong> who live in northern Quezon City, so we arrive on time.</li>
+      </ul>
+    </section>
+
+    <section class={`section${hasBooking ? ' split' : ''}`}>
+      {hasBooking && <SiteImage slot="home-booking" class="section-img" sizes="(min-width: 900px) 540px, 100vw" />}
       <div>
         <h2>How booking works</h2>
-        <ol>
+        <ol class="steps">
           <li>Message us your home size or business, the service and your preferred date.</li>
           <li>Get a fixed quote, usually within the hour.</li>
           <li>Confirm with a 50% deposit for jobs over ₱3,000 (GCash, Maya or bank transfer).</li>
           <li>We clean, walk through it with you and send the photo report. Then you pay the balance.</li>
         </ol>
+        <p class="cta-row"><CtaButtons /></p>
       </div>
-      {hasBooking && <SiteImage slot="home-booking" class="section-img" />}
-    </div>
-    <AreasServed />
-    <p>See every service and rate on our <a href="/prices/">cleaning prices page</a>, updated {biz.pricesUpdated}.</p>
+    </section>
+
+    <section class="band-soft">
+      <h2>Popular prices</h2>
+      <ul class="pricelist">
+        {primaries.flatMap((p) => [p, ...childrenOf(p.data.url).slice(0, 3)]).map((s) => (
+          <li><a href={`/${s.data.url}/`}>{s.data.menuLabel ?? s.data.h1}</a><span>{s.data.priceFrom}</span></li>
+        ))}
+      </ul>
+      <p>See every service and rate on our <a href="/prices/">cleaning prices page</a>, updated {biz.pricesUpdated}.</p>
+    </section>
+
+    <section class="section">
+      <AreasServed />
+      <ul class="chips" aria-label="Areas">
+        {biz.areas.map((a) => <li>{a}</li>)}
+      </ul>
+    </section>
+
+    {houseFaqs.length > 0 && <Faqs faqs={houseFaqs} heading="Common questions" />}
   </div>
+
+  <section class="band">
+    <div class="wrap">
+      <h2>Ready for a fresh start?</h2>
+      <p>Send us your home size, the service and your preferred date. We reply with a fixed price, usually within the hour.</p>
+      <p class="cta-row"><CtaButtons callLabel /></p>
+    </div>
+  </section>
 </Base>

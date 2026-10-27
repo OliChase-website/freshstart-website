@@ -1,0 +1,16 @@
+---
+// Questions shown as expandable rows. The FAQPage schema is built by each page, not here.
+interface Props { faqs: { q: string; a: string }[]; heading?: string }
+const { faqs, heading = 'Frequently asked questions' } = Astro.props;
+---
+<section class="faq">
+  <h2>{heading}</h2>
+  <div class="faq-list">
+    {faqs.map((f) => (
+      <details>
+        <summary>{f.q}</summary>
+        <p>{f.a}</p>
+      </details>
+    ))}
+  </div>
+</section>
