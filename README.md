@@ -1,6 +1,6 @@
 # FreshStart Cleaning Co. website
 
-Astro static site. Every push to `main` is deployed by Cloudflare Pages.
+Astro static site. Every push to `main` is deployed by Cloudflare Workers (static assets).
 
 ## Run it locally
 
