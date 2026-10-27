@@ -8,7 +8,7 @@
       "use": "hero",
       "aspect": "4:3",
       "minWidth": 1600,
-      "alt": "Two FreshStart cleaners wiping a kitchen counter and mopping the floor in a Fairview home",
+      "alt": "Two cleaners wiping a kitchen counter and mopping the floor in a Fairview home",
       "scene": "Bright, tidy kitchen-dining area of a middle-class house-and-lot in Fairview, Quezon City: tiled floor, ceramic-tiled backsplash, electric fan, rice cooker on the counter. Two Filipino cleaners, a woman in her 30s and a man in his 20s, in teal uniform polos, gloves on, one wiping the counter, one mopping. Natural daylight from a window with grills. Warm, friendly, candid; not posed at the camera.",
       "status": "now"
     },
@@ -29,8 +29,9 @@
       "aspect": "3:2",
       "minWidth": 1200,
       "alt": "The FreshStart cleaning crew with their equipment outside a house in northern Quezon City",
-      "scene": "Three or four Filipino cleaners (men and women, 20s to 40s) in matching teal polos and caps standing relaxed beside cleaning kits, a vacuum and mop buckets at a gated house-and-lot driveway in a North QC subdivision. Late-morning light, plants in pots, a painted gate (no number visible).",
-      "status": "now"
+      "scene": "A real photo of the FreshStart crew (with their permission)",
+      "status": "now",
+      "realPhotoOnly": true
     },
     "about-training": {
       "file": "cleaner-training-checklist-quezon-city",
@@ -38,7 +39,7 @@
       "use": "section",
       "aspect": "3:2",
       "minWidth": 1200,
-      "alt": "A FreshStart team lead showing a new cleaner the bathroom checklist during training",
+      "alt": "A team lead showing a new cleaner the bathroom checklist during training",
       "scene": "A Filipina team lead in a teal polo holds a clipboard checklist and points at a bathroom sink while a younger Filipino trainee in the same uniform listens and takes notes. Clean white-tiled bathroom in a Quezon City home.",
       "status": "now"
     },
@@ -48,7 +49,7 @@
       "use": "hero",
       "aspect": "4:3",
       "minWidth": 1600,
-      "alt": "FreshStart cleaners arriving at a client's gate in Novaliches with their cleaning kit",
+      "alt": "Cleaners arriving at a client's gate in Novaliches with their cleaning kit",
       "scene": "Two Filipino cleaners in teal polos and company IDs on lanyards greet a homeowner at an open steel gate of a townhouse in Novaliches, carrying a caddy of supplies and a mop bucket. Tricycle passing in the background, everyday street, morning light.",
       "status": "now"
     },
@@ -58,7 +59,7 @@
       "use": "og",
       "aspect": "1200x630",
       "minWidth": 1200,
-      "alt": "FreshStart Cleaning Co. cleaners at work in a Quezon City home",
+      "alt": "Cleaners at work in a Quezon City home",
       "scene": "Wide shot, same style as the home hero: a Filipino cleaning team in teal polos working in a bright living room. Leave the left third calm (wall or window) so the shared link title stays readable over it.",
       "status": "now"
     },
@@ -78,7 +79,7 @@
       "use": "hero",
       "aspect": "4:3",
       "minWidth": 1600,
-      "alt": "Regular FreshStart cleaner making the bed in a Quezon City townhouse bedroom",
+      "alt": "Cleaner making the bed in a Quezon City townhouse bedroom",
       "scene": "Neat bedroom in a North Fairview townhouse. A Filipina cleaner in a teal polo smooths a fresh bedsheet and arranges pillows; folded towels on the bed. Calm, homely, routine-visit feel.",
       "status": "now"
     },
@@ -178,7 +179,7 @@
       "use": "hero",
       "aspect": "4:3",
       "minWidth": 1600,
-      "alt": "FreshStart staff airing out and checking a vacant house in Lagro",
+      "alt": "Staff airing out and checking a vacant house in Lagro",
       "scene": "A closed-up single house in Greater Lagro: a Filipino FreshStart staff member in a teal polo opens windows, another checks a faucet; sheets over some furniture. Calm, caretaking feel.",
       "status": "now"
     },
