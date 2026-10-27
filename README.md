@@ -51,18 +51,21 @@ Each page automatically gets: canonical URL, Open Graph tags, LocalBusiness + Se
 
 The FreshStart Price Book is the source of truth. When a price changes, update the service page(s), the Google Business Profile service, the Facebook price card and the workbook on the same day, and change `pricesUpdated` in `business.json`.
 
-## Deploy (Hostinger, via GitHub Actions)
+## Deploy (Cloudflare Pages, free)
 
-Every push to `main` builds the site and uploads `dist/` to Hostinger over SSH (`.github/workflows/deploy.yml`). A failed SEO check stops the deploy, so the live site never breaks.
+Cloudflare Pages is connected to this repository and rebuilds the site on every push to `main`, usually live within a minute or two. A build that fails (for example an SEO field over its length limit) is not published, so the live site never breaks.
 
-Repository secrets (GitHub → Settings → Secrets and variables → Actions):
+Cloudflare Pages build settings:
 
-| Secret | Value (from Hostinger hPanel → Advanced → SSH Access) |
+| Setting | Value |
 |---|---|
-| `HOSTINGER_HOST` | SSH IP address |
-| `HOSTINGER_PORT` | SSH port (usually 65002) |
-| `HOSTINGER_USER` | SSH username (u123456789) |
-| `HOSTINGER_PATH` | `/home/<username>/domains/freshstartcleaningco.com.ph/public_html` |
-| `HOSTINGER_SSH_KEY` | The private key of the deploy key pair; its public key is added in hPanel → SSH Access → SSH keys |
+| Framework preset | Astro |
+| Build command | `npm run build` |
+| Build output directory | `dist` |
+| Environment variable | `NODE_VERSION` = `22` |
 
-`public/.htaccess` forces HTTPS and the bare domain, adds trailing slashes and serves the 404 page.
+Custom domains: `freshstartcleaningco.com.ph` (main) and `www.freshstartcleaningco.com.ph`, with a Cloudflare redirect rule sending www to the bare domain. The domain's DNS is on Cloudflare, so the Google Workspace records (MX, SPF, DKIM, DMARC) live there too.
+
+`public/_headers` sets long caching for Astro's fingerprinted files. Pages serves `404.html` for missing pages and handles trailing slashes on its own.
+
+`.github/workflows/build-check.yml` runs the same build on GitHub so problems show as a red X on the commit.
