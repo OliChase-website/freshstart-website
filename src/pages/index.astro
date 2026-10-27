@@ -1,17 +1,27 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
+import CtaButtons from '../components/CtaButtons.astro';
+import SiteImage from '../components/SiteImage.astro';
+import AreasServed from '../components/AreasServed.astro';
 import biz from '../data/business.json';
+import { findImage } from '../lib/images';
 const primaries = (await getCollection('services', ({ data }) => !data.draft && data.level === 'primary')).sort((a, b) => a.data.order - b.data.order);
 const landlords = (await getCollection('services', ({ data }) => !data.draft && data.parent === 'property-management')).sort((a, b) => a.data.order - b.data.order);
+const hasHero = findImage('home-hero') !== null;
+const hasBooking = findImage('home-booking') !== null;
 ---
-<Base title="Cleaning Services in Fairview, Lagro & Novaliches, QC | FreshStart" description="House, condo, rental and small business cleaning in Fairview, Lagro and Novaliches, Quezon City. Fixed prices with transport included, photo reports. From ₱999.">
+<Base title="Cleaning Services in Fairview & Novaliches, QC | FreshStart" description="House, condo, rental and small business cleaning in Fairview, Lagro and Novaliches, Quezon City. Fixed prices with transport and photo reports. From ₱999." ogSlot="home-hero">
   <section class="hero">
-    <div class="wrap">
-      <h1>Cleaning services in Fairview, Lagro and Novaliches</h1>
-      <p>Trained, NBI-cleared cleaners for houses, condos, rentals and small businesses in northern Quezon City. Fixed prices with transport included, a before-and-after photo report on every job, and a free re-clean within 48 hours.</p>
-      <p class="price" style="font-size:1.4rem;color:#FF9A5C">Starter Clean ₱999 · deep cleans from ₱2,890</p>
-      <p><a class="btn btn-primary" href={biz.messengerUrl}>Book on Messenger</a> <a class="btn btn-secondary" href="/prices/" style="background:#0A3834">See all prices</a></p>
+    <div class={`wrap${hasHero ? ' hero-grid' : ''}`}>
+      <div>
+        <h1>Cleaning services in Fairview, Lagro and Novaliches</h1>
+        <p>Trained, NBI-cleared cleaners for houses, condos, rentals and small businesses in northern Quezon City. Fixed prices with transport included, a before-and-after photo report on every job, and a free re-clean within 48 hours.</p>
+        <p class="area-line">Serving {biz.areas.join(', ')}, {biz.city}</p>
+        <p class="price" style="font-size:1.4rem;color:#FF9A5C">Starter Clean ₱999 · deep cleans from ₱2,890</p>
+        <p class="cta-row"><CtaButtons dark /><a class="btn btn-secondary" href="/prices/" style="background:#0A3834">See all prices</a></p>
+      </div>
+      {hasHero && <SiteImage slot="home-hero" priority class="hero-img" />}
     </div>
   </section>
   <div class="wrap">
@@ -32,12 +42,19 @@ const landlords = (await getCollection('services', ({ data }) => !data.draft && 
       <li><strong>48-hour re-clean guarantee</strong> if anything on the checklist was missed.</li>
       <li><strong>Local crews</strong> who live in northern Quezon City, so we arrive on time.</li>
     </ul>
-    <h2>How booking works</h2>
-    <ol>
-      <li>Message us your home size or business, the service and your preferred date.</li>
-      <li>Get a fixed quote, usually within the hour.</li>
-      <li>Confirm with a 50% deposit for jobs over ₱3,000 (GCash, Maya or bank transfer).</li>
-      <li>We clean, walk through it with you and send the photo report. Then you pay the balance.</li>
-    </ol>
+    <div class={hasBooking ? 'split' : ''}>
+      <div>
+        <h2>How booking works</h2>
+        <ol>
+          <li>Message us your home size or business, the service and your preferred date.</li>
+          <li>Get a fixed quote, usually within the hour.</li>
+          <li>Confirm with a 50% deposit for jobs over ₱3,000 (GCash, Maya or bank transfer).</li>
+          <li>We clean, walk through it with you and send the photo report. Then you pay the balance.</li>
+        </ol>
+      </div>
+      {hasBooking && <SiteImage slot="home-booking" class="section-img" />}
+    </div>
+    <AreasServed />
+    <p>See every service and rate on our <a href="/prices/">cleaning prices page</a>, updated {biz.pricesUpdated}.</p>
   </div>
 </Base>

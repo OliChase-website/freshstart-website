@@ -2,6 +2,7 @@
 url: "property-management/airbnb-turnover-cleaning"
 level: "secondary"
 parent: "property-management"
+breadcrumbParent: "house-cleaning"
 order: 3
 menuLabel: "Airbnb turnover cleaning"
 title: "Airbnb Turnover Cleaning in Fairview, QC | FreshStart"

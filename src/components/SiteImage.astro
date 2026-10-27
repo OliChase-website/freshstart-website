@@ -1,0 +1,31 @@
+---
+// Renders the image for one slot in src/data/images.json, as responsive AVIF/WebP with a JPEG
+// fallback. Renders nothing at all until the slot's file exists in src/assets/images/.
+import { Picture } from 'astro:assets';
+import { findImage } from '../lib/images';
+
+interface Props {
+  slot: string;
+  priority?: boolean;   // true for the hero: loads immediately instead of lazily
+  sizes?: string;
+  class?: string;
+}
+const { slot, priority = false, sizes = '(min-width: 900px) 520px, 100vw', class: className } = Astro.props;
+const img = findImage(slot);
+const widths = img ? [480, 800, 1200, 1600].filter((w) => w <= img.src.width) : [];
+if (img && widths.length === 0) widths.push(img.src.width);
+---
+{img && (
+  <Picture
+    src={img.src}
+    alt={img.alt}
+    widths={widths}
+    sizes={sizes}
+    formats={['avif', 'webp']}
+    fallbackFormat="jpg"
+    loading={priority ? 'eager' : 'lazy'}
+    decoding={priority ? 'sync' : 'async'}
+    fetchpriority={priority ? 'high' : 'auto'}
+    class={className}
+  />
+)}

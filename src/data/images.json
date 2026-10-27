@@ -1,0 +1,362 @@
+{
+  "_readme": "Every image slot on the site. To fill a slot, save the image in src/assets/images/ with the slot's file name (any of .jpg .jpeg .png .webp .avif); the site resizes and converts it at build time. A slot with no file shows nothing. Supply at least minWidth pixels wide at the given aspect ratio. status 'now' = page is live; 'later' = page is still a draft. realPhotoOnly = must be a real photo from a FreshStart job (Google and customers treat these as proof).",
+  "_brand": "Crew wear a deep teal (#0E4F4A) polo or shirt with a small apricot (#FF9A5C) accent and a plain cap or hairnet; no other company logos, no readable house numbers, gate numbers or plate numbers.",
+  "slots": {
+    "home-hero": {
+      "file": "house-cleaning-team-fairview-quezon-city",
+      "page": "/",
+      "use": "hero",
+      "aspect": "4:3",
+      "minWidth": 1600,
+      "alt": "Two FreshStart cleaners wiping a kitchen counter and mopping the floor in a Fairview home",
+      "scene": "Bright, tidy kitchen-dining area of a middle-class house-and-lot in Fairview, Quezon City: tiled floor, ceramic-tiled backsplash, electric fan, rice cooker on the counter. Two Filipino cleaners, a woman in her 30s and a man in his 20s, in teal uniform polos, gloves on, one wiping the counter, one mopping. Natural daylight from a window with grills. Warm, friendly, candid; not posed at the camera.",
+      "status": "now"
+    },
+    "home-booking": {
+      "file": "booking-cleaning-on-messenger-quezon-city",
+      "page": "/ (How booking works)",
+      "use": "section",
+      "aspect": "3:2",
+      "minWidth": 1200,
+      "alt": "Homeowner in Quezon City checking a cleaning quote on her phone while a cleaner works in the background",
+      "scene": "A Filipina homeowner in her 40s in casual home clothes sits at a wooden dining table holding a phone, smiling at a chat screen (no readable app branding). In the soft-focus background a FreshStart cleaner in a teal polo dusts a living-room shelf. Townhouse interior with a sala set and a wall clock.",
+      "status": "now"
+    },
+    "about-team": {
+      "file": "freshstart-cleaning-crew-quezon-city",
+      "page": "/about/",
+      "use": "section",
+      "aspect": "3:2",
+      "minWidth": 1200,
+      "alt": "The FreshStart cleaning crew with their equipment outside a house in northern Quezon City",
+      "scene": "Three or four Filipino cleaners (men and women, 20s to 40s) in matching teal polos and caps standing relaxed beside cleaning kits, a vacuum and mop buckets at a gated house-and-lot driveway in a North QC subdivision. Late-morning light, plants in pots, a painted gate (no number visible).",
+      "status": "now"
+    },
+    "about-training": {
+      "file": "cleaner-training-checklist-quezon-city",
+      "page": "/about/ (How we hire and train)",
+      "use": "section",
+      "aspect": "3:2",
+      "minWidth": 1200,
+      "alt": "A FreshStart team lead showing a new cleaner the bathroom checklist during training",
+      "scene": "A Filipina team lead in a teal polo holds a clipboard checklist and points at a bathroom sink while a younger Filipino trainee in the same uniform listens and takes notes. Clean white-tiled bathroom in a Quezon City home.",
+      "status": "now"
+    },
+    "book-hero": {
+      "file": "cleaner-arriving-home-novaliches",
+      "page": "/book/",
+      "use": "hero",
+      "aspect": "4:3",
+      "minWidth": 1600,
+      "alt": "FreshStart cleaners arriving at a client's gate in Novaliches with their cleaning kit",
+      "scene": "Two Filipino cleaners in teal polos and company IDs on lanyards greet a homeowner at an open steel gate of a townhouse in Novaliches, carrying a caddy of supplies and a mop bucket. Tricycle passing in the background, everyday street, morning light.",
+      "status": "now"
+    },
+    "og-default": {
+      "file": "freshstart-cleaning-co-social",
+      "page": "All pages (link previews on Facebook, Messenger, Viber)",
+      "use": "og",
+      "aspect": "1200x630",
+      "minWidth": 1200,
+      "alt": "FreshStart Cleaning Co. cleaners at work in a Quezon City home",
+      "scene": "Wide shot, same style as the home hero: a Filipino cleaning team in teal polos working in a bright living room. Leave the left third calm (wall or window) so the shared link title stays readable over it.",
+      "status": "now"
+    },
+    "house-cleaning": {
+      "file": "house-cleaning-service-fairview-lagro-novaliches",
+      "page": "/house-cleaning/",
+      "use": "hero",
+      "aspect": "4:3",
+      "minWidth": 1600,
+      "alt": "Cleaner vacuuming the living room of a house in Greater Lagro, Quezon City",
+      "scene": "Living room of a single house in Greater Lagro: sala set, family photos (blurred), capiz or jalousie windows. A Filipina cleaner in a teal polo vacuums the rug while a second cleaner fluffs throw pillows.",
+      "status": "now"
+    },
+    "house-cleaning/regular-cleaning-plans": {
+      "file": "weekly-house-cleaning-quezon-city",
+      "page": "/house-cleaning/regular-cleaning-plans/",
+      "use": "hero",
+      "aspect": "4:3",
+      "minWidth": 1600,
+      "alt": "Regular FreshStart cleaner making the bed in a Quezon City townhouse bedroom",
+      "scene": "Neat bedroom in a North Fairview townhouse. A Filipina cleaner in a teal polo smooths a fresh bedsheet and arranges pillows; folded towels on the bed. Calm, homely, routine-visit feel.",
+      "status": "now"
+    },
+    "house-cleaning/deep-cleaning": {
+      "file": "deep-cleaning-kitchen-fairview-qc",
+      "page": "/house-cleaning/deep-cleaning/",
+      "use": "hero",
+      "aspect": "4:3",
+      "minWidth": 1600,
+      "alt": "Cleaner scrubbing kitchen tile grout during a deep clean in Fairview",
+      "scene": "Close-medium shot in a Filipino home kitchen: a cleaner in gloves and a teal polo scrubs tile grout and the range hood; cabinet doors open, spray bottle and microfiber cloths on the counter. Shows thoroughness.",
+      "status": "now"
+    },
+    "house-cleaning/move-in-move-out-cleaning": {
+      "file": "move-out-cleaning-empty-apartment-quezon-city",
+      "page": "/house-cleaning/move-in-move-out-cleaning/",
+      "use": "hero",
+      "aspect": "4:3",
+      "minWidth": 1600,
+      "alt": "Two cleaners cleaning an empty apartment after move-out in Quezon City",
+      "scene": "Empty apartment unit (no furniture) in Kaligayahan or Novaliches: bare tiled floor, open windows. Two Filipino cleaners in teal polos, one wiping window tracks, one mopping; a couple of moving boxes by the door.",
+      "status": "now"
+    },
+    "house-cleaning/post-renovation-cleaning": {
+      "file": "post-renovation-cleaning-quezon-city",
+      "page": "/house-cleaning/post-renovation-cleaning/",
+      "use": "hero",
+      "aspect": "4:3",
+      "minWidth": 1600,
+      "alt": "Cleaner removing construction dust and paint marks after a home renovation in Quezon City",
+      "scene": "Freshly renovated room with new tiles and white walls, dust on surfaces, a ladder in the corner. A Filipino cleaner in a teal polo, dust mask and gloves scrapes paint spots off the floor tiles; another vacuums dust with an industrial vacuum.",
+      "status": "now"
+    },
+    "house-cleaning/after-party-clean-up": {
+      "file": "after-party-clean-up-quezon-city",
+      "page": "/house-cleaning/after-party-clean-up/",
+      "use": "hero",
+      "aspect": "4:3",
+      "minWidth": 1600,
+      "alt": "Cleaners collecting garbage and stacking chairs the morning after a party in a Quezon City home",
+      "scene": "Morning after a family celebration in a covered garage or sala: monobloc chairs, a folding table, leftover balloons and a birthday banner (no names). Two Filipino cleaners in teal polos bag garbage and stack chairs.",
+      "status": "now"
+    },
+    "commercial-cleaning": {
+      "file": "commercial-cleaning-office-fairview-qc",
+      "page": "/commercial-cleaning/",
+      "use": "hero",
+      "aspect": "4:3",
+      "minWidth": 1600,
+      "alt": "Cleaner disinfecting desks in a small office in Fairview, Quezon City",
+      "scene": "Small office (6 to 10 desks) above a shop along Regalado Avenue style street: computers off, early-morning light. A Filipino cleaner in a teal polo wipes desks with disinfectant while a colleague empties bins.",
+      "status": "now"
+    },
+    "commercial-cleaning/office-cleaning": {
+      "file": "office-cleaning-novaliches-qc",
+      "page": "/commercial-cleaning/office-cleaning/",
+      "use": "hero",
+      "aspect": "4:3",
+      "minWidth": 1600,
+      "alt": "Cleaner mopping the floor of a small office in Novaliches before opening hours",
+      "scene": "A Filipina cleaner in a teal polo mops a small office floor with a yellow wet-floor sign; chairs pushed in, a pantry corner with a water dispenser.",
+      "status": "now"
+    },
+    "commercial-cleaning/clinic-cleaning": {
+      "file": "clinic-cleaning-disinfection-fairview-qc",
+      "page": "/commercial-cleaning/clinic-cleaning/",
+      "use": "hero",
+      "aspect": "4:3",
+      "minWidth": 1600,
+      "alt": "Cleaner in gloves disinfecting a dental clinic waiting area in Fairview",
+      "scene": "Small dental or medical clinic waiting area: plastic chairs, reception counter, a plant. A Filipino cleaner in a teal polo, gloves and mask, wipes the reception counter and door handles. No patients present.",
+      "status": "now"
+    },
+    "commercial-cleaning/shop-restaurant-cleaning": {
+      "file": "shop-restaurant-cleaning-fairview-qc",
+      "page": "/commercial-cleaning/shop-restaurant-cleaning/",
+      "use": "hero",
+      "aspect": "4:3",
+      "minWidth": 1600,
+      "alt": "Cleaners wiping tables and mopping a small eatery after closing in Fairview",
+      "scene": "Small carinderia or cafe after closing: chairs up on tables, stainless counter. Two Filipino cleaners in teal polos mop the floor and degrease the counter. No signage text visible.",
+      "status": "now"
+    },
+    "property-management/landlord-turnover-cleaning": {
+      "file": "rental-turnover-cleaning-landlord-quezon-city",
+      "page": "/property-management/landlord-turnover-cleaning/",
+      "use": "hero",
+      "aspect": "4:3",
+      "minWidth": 1600,
+      "alt": "Cleaner photographing a cleaned apartment for the landlord's turnover report in Quezon City",
+      "scene": "Empty, freshly cleaned apartment unit. A Filipino team lead in a teal polo takes a photo of the clean bathroom with a phone for the photo report; a cleaner coils a vacuum cord behind.",
+      "status": "now"
+    },
+    "property-management/vacant-unit-care": {
+      "file": "vacant-house-care-fairview-lagro",
+      "page": "/property-management/vacant-unit-care/",
+      "use": "hero",
+      "aspect": "4:3",
+      "minWidth": 1600,
+      "alt": "FreshStart staff airing out and checking a vacant house in Lagro",
+      "scene": "A closed-up single house in Greater Lagro: a Filipino FreshStart staff member in a teal polo opens windows, another checks a faucet; sheets over some furniture. Calm, caretaking feel.",
+      "status": "now"
+    },
+    "property-management/airbnb-turnover-cleaning": {
+      "file": "airbnb-turnover-cleaning-fairview-condo",
+      "page": "/property-management/airbnb-turnover-cleaning/",
+      "use": "hero",
+      "aspect": "4:3",
+      "minWidth": 1600,
+      "alt": "Cleaner preparing a short-stay condo unit for the next guest in Fairview",
+      "scene": "Stylish compact condo unit near Fairview: a Filipina cleaner in a teal polo places fresh towels folded on the bed and a welcome card on the side table; a second cleaner restocks the kitchenette.",
+      "status": "now"
+    },
+    "pressure-washing": {
+      "file": "pressure-washing-driveway-fairview-lagro",
+      "page": "/pressure-washing/ (draft)",
+      "use": "hero",
+      "aspect": "4:3",
+      "minWidth": 1600,
+      "alt": "Cleaner pressure washing a concrete driveway in Greater Lagro",
+      "scene": "Gated driveway of a house-and-lot in Greater Lagro: a Filipino cleaner in a teal polo, boots and safety glasses uses a pressure washer, leaving a visibly clean stripe on darker concrete.",
+      "status": "later"
+    },
+    "pressure-washing/driveway-garage-washing": {
+      "file": "driveway-garage-pressure-washing-quezon-city",
+      "page": "/pressure-washing/driveway-garage-washing/ (draft)",
+      "use": "hero",
+      "aspect": "4:3",
+      "minWidth": 1600,
+      "alt": "Garage floor being pressure washed to remove oil stains in Quezon City",
+      "scene": "Carport with an oil-stained concrete floor; a Filipino cleaner pressure washes it, half clean and half dirty. No vehicle plates visible.",
+      "status": "later"
+    },
+    "pressure-washing/wall-fence-washing": {
+      "file": "wall-fence-washing-moss-removal-quezon-city",
+      "page": "/pressure-washing/wall-fence-washing/ (draft)",
+      "use": "hero",
+      "aspect": "4:3",
+      "minWidth": 1600,
+      "alt": "Soft washing moss off a perimeter wall in Quezon City",
+      "scene": "Perimeter concrete wall with green moss streaks; a Filipino cleaner soft-washes it with low pressure, clear before-and-after line visible.",
+      "status": "later"
+    },
+    "car-detailing": {
+      "file": "home-service-car-detailing-fairview",
+      "page": "/car-detailing/ (draft)",
+      "use": "hero",
+      "aspect": "4:3",
+      "minWidth": 1600,
+      "alt": "Cleaner foam washing a car at the owner's gate in Fairview",
+      "scene": "Sedan parked in front of a gate in a Fairview subdivision; a Filipino cleaner in a teal polo foam-washes it with a mitt. Plate not visible.",
+      "status": "later"
+    },
+    "car-detailing/home-car-wash": {
+      "file": "home-car-wash-novaliches",
+      "page": "/car-detailing/home-car-wash/ (draft)",
+      "use": "hero",
+      "aspect": "4:3",
+      "minWidth": 1600,
+      "alt": "Hand drying an SUV after a home car wash in Novaliches",
+      "scene": "SUV in a driveway; a Filipino cleaner hand-dries it with a microfiber towel, tyre shine bottle nearby.",
+      "status": "later"
+    },
+    "car-detailing/interior-detailing": {
+      "file": "car-interior-detailing-at-home-quezon-city",
+      "page": "/car-detailing/interior-detailing/ (draft)",
+      "use": "hero",
+      "aspect": "4:3",
+      "minWidth": 1600,
+      "alt": "Cleaner shampooing car seats during interior detailing at home",
+      "scene": "Open car door; a Filipino cleaner extracts dirt from a fabric seat with a spray extractor wand.",
+      "status": "later"
+    },
+    "upholstery-cleaning": {
+      "file": "sofa-mattress-carpet-cleaning-quezon-city",
+      "page": "/upholstery-cleaning/ (draft)",
+      "use": "hero",
+      "aspect": "4:3",
+      "minWidth": 1600,
+      "alt": "Cleaner shampooing a fabric sofa in a Quezon City living room",
+      "scene": "Fabric 3-seater sofa in a sala; a Filipino cleaner in a teal polo uses a spray extractor; a clean stripe shows on the cushion.",
+      "status": "later"
+    },
+    "upholstery-cleaning/sofa-cleaning": {
+      "file": "sofa-cleaning-at-home-fairview-novaliches",
+      "page": "/upholstery-cleaning/sofa-cleaning/ (draft)",
+      "use": "hero",
+      "aspect": "4:3",
+      "minWidth": 1600,
+      "alt": "Sofa being deep cleaned at home in Fairview",
+      "scene": "Close-medium shot of sofa cushion extraction, dirty water visible in the machine tank, homeowner's hand (no face) pointing at a stain.",
+      "status": "later"
+    },
+    "upholstery-cleaning/mattress-cleaning": {
+      "file": "mattress-cleaning-at-home-quezon-city",
+      "page": "/upholstery-cleaning/mattress-cleaning/ (draft)",
+      "use": "hero",
+      "aspect": "4:3",
+      "minWidth": 1600,
+      "alt": "Cleaner vacuuming and shampooing a mattress at home in Quezon City",
+      "scene": "Bare queen mattress in a bedroom; a Filipina cleaner in a teal polo runs an upholstery vacuum over it.",
+      "status": "later"
+    },
+    "upholstery-cleaning/carpet-cleaning": {
+      "file": "carpet-rug-cleaning-quezon-city",
+      "page": "/upholstery-cleaning/carpet-cleaning/ (draft)",
+      "use": "hero",
+      "aspect": "4:3",
+      "minWidth": 1600,
+      "alt": "Office carpet being shampooed in Quezon City",
+      "scene": "Small office with carpet tiles; a Filipino cleaner shampoos the carpet with an extractor after hours.",
+      "status": "later"
+    },
+    "area-fairview": {
+      "file": "cleaning-services-fairview-quezon-city",
+      "page": "/areas/fairview/ (draft)",
+      "use": "hero",
+      "aspect": "4:3",
+      "minWidth": 1600,
+      "alt": "FreshStart crew at a job in Fairview, Quezon City",
+      "scene": "A real FreshStart job in Fairview (crew from behind or the side, client's permission).",
+      "status": "later",
+      "realPhotoOnly": true
+    },
+    "area-north-fairview": {
+      "file": "cleaning-services-north-fairview-quezon-city",
+      "page": "/areas/north-fairview/ (draft)",
+      "use": "hero",
+      "aspect": "4:3",
+      "minWidth": 1600,
+      "alt": "FreshStart crew at a job in North Fairview, Quezon City",
+      "scene": "A real FreshStart job in North Fairview.",
+      "status": "later",
+      "realPhotoOnly": true
+    },
+    "area-greater-lagro": {
+      "file": "cleaning-services-greater-lagro-quezon-city",
+      "page": "/areas/greater-lagro/ (draft)",
+      "use": "hero",
+      "aspect": "4:3",
+      "minWidth": 1600,
+      "alt": "FreshStart crew at a job in Greater Lagro, Quezon City",
+      "scene": "A real FreshStart job in Greater Lagro.",
+      "status": "later",
+      "realPhotoOnly": true
+    },
+    "area-kaligayahan": {
+      "file": "cleaning-services-kaligayahan-quezon-city",
+      "page": "/areas/kaligayahan/ (draft)",
+      "use": "hero",
+      "aspect": "4:3",
+      "minWidth": 1600,
+      "alt": "FreshStart crew at a job in Kaligayahan, Quezon City",
+      "scene": "A real FreshStart job in Kaligayahan.",
+      "status": "later",
+      "realPhotoOnly": true
+    },
+    "area-pasong-putik": {
+      "file": "cleaning-services-pasong-putik-quezon-city",
+      "page": "/areas/pasong-putik/ (draft)",
+      "use": "hero",
+      "aspect": "4:3",
+      "minWidth": 1600,
+      "alt": "FreshStart crew at a job in Pasong Putik, Quezon City",
+      "scene": "A real FreshStart job in Pasong Putik.",
+      "status": "later",
+      "realPhotoOnly": true
+    },
+    "area-novaliches": {
+      "file": "cleaning-services-novaliches-quezon-city",
+      "page": "/areas/novaliches/ (draft)",
+      "use": "hero",
+      "aspect": "4:3",
+      "minWidth": 1600,
+      "alt": "FreshStart crew at a job in Novaliches, Quezon City",
+      "scene": "A real FreshStart job in Novaliches.",
+      "status": "later",
+      "realPhotoOnly": true
+    }
+  }
+}

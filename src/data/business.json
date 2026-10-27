@@ -1,6 +1,7 @@
 {
   "name": "FreshStart Cleaning Co.",
   "tagline": "Every space deserves a fresh start.",
+  "description": "Quezon City cleaning team serving Fairview, North Fairview, Greater Lagro, Kaligayahan, Pasong Putik and Novaliches: house, condo and apartment cleaning, deep and move-out cleaning, rental turnovers and small business cleaning at fixed prices with transport included.",
   "url": "https://freshstartcleaningqc.com",
   "phone": "+63XXXXXXXXXX",
   "phoneDisplay": "[Mobile number]",
@@ -11,10 +12,16 @@
   "instagram": "https://www.instagram.com/[handle]",
   "tiktok": "https://www.tiktok.com/@[handle]",
   "gbp": "[Google Maps link once verified]",
-  "hours": "Monday to Saturday, 7:00 AM to 7:00 PM",
+  "gbpReviewUrl": "[Google review link once verified]",
+  "bookingFormUrl": "[Google Form link]",
+  "ga4Id": "[G-XXXXXXXXXX]",
+  "searchConsoleVerification": "",
+  "hours": "Monday to Saturday, 7:00 AM to 7:00 PM; Sundays by appointment",
   "openingHours": [
     "Mo-Sa 07:00-19:00"
   ],
+  "priceRange": "₱690–₱69,990",
+  "paymentAccepted": "GCash, Maya, bank transfer",
   "city": "Quezon City",
   "areas": [
     "Fairview",

@@ -7,7 +7,7 @@ export async function getStaticPaths() {
 }
 const { post } = Astro.props;
 const { Content } = await render(post);
-const jsonLd = [{ '@context': 'https://schema.org', '@type': 'Article', headline: post.data.h1, datePublished: post.data.date.toISOString(), dateModified: (post.data.updated ?? post.data.date).toISOString(), author: { '@type': 'Organization', name: 'FreshStart Cleaning Co.' } }];
+const jsonLd = [{ '@context': 'https://schema.org', '@type': 'Article', headline: post.data.h1, datePublished: post.data.date.toISOString(), dateModified: (post.data.updated ?? post.data.date).toISOString(), author: { '@type': 'Organization', name: 'FreshStart Cleaning Co.', url: new URL('/', Astro.site).href }, publisher: { '@type': 'Organization', name: 'FreshStart Cleaning Co.', url: new URL('/', Astro.site).href }, mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).href }];
 ---
 <Base title={post.data.title} description={post.data.description} jsonLd={jsonLd}>
   <div class="wrap"><article><h1>{post.data.h1}</h1><p style="color:#4F6461">Updated {(post.data.updated ?? post.data.date).toLocaleDateString('en-PH', { year: 'numeric', month: 'long', day: 'numeric' })}</p><Content /></article></div>
