@@ -8,5 +8,8 @@
     "directory": "./dist",
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "404-page"
-  }
+  },
+  // Branch builds (pull requests) run `npx wrangler preview`, which needs this block (it can be empty)
+  // and gives each branch its own preview URL. Production still deploys with `npx wrangler deploy`.
+  "previews": {}
 }

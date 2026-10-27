@@ -1,0 +1,23 @@
+---
+// Booking buttons used in heroes, the closing band and the sticky mobile bar.
+// Each button only appears once its contact detail is filled in src/data/business.json.
+// data-track names are sent to Google Analytics as click events (see Base.astro).
+import { contact, messengerLink } from '../lib/contact';
+
+interface Props {
+  message?: string;      // pre-filled Messenger text, e.g. "Hi FreshStart! I'd like a quote for deep cleaning."
+  quote?: boolean;       // show the "Get a quote" button that opens /book/
+  callLabel?: boolean;   // show the number on the Call button
+  dark?: boolean;        // darker secondary buttons for use on the green hero
+  compact?: boolean;     // short labels for the sticky mobile bar
+}
+const { message, quote = false, callLabel = false, dark = false, compact = false } = Astro.props;
+const m = messengerLink(message);
+const secondaryStyle = dark ? 'background:#0A3834' : undefined;
+---
+{m
+  ? <a class="btn btn-primary" href={m} data-track="click_messenger">{compact ? 'Messenger' : 'Book on Messenger'}</a>
+  : <a class="btn btn-primary" href="/book/" data-track="click_book">Book a clean</a>}
+{contact.viber && <a class="btn btn-secondary" href={contact.viber} style={secondaryStyle} data-track="click_viber">{compact ? 'Viber' : 'Viber us'}</a>}
+{contact.phone && <a class="btn btn-secondary" href={`tel:${contact.phone}`} style={secondaryStyle} data-track="click_call">{callLabel && contact.phoneDisplay ? `Call ${contact.phoneDisplay}` : 'Call'}</a>}
+{quote && m && <a class="btn btn-secondary" href="/book/" style={secondaryStyle} data-track="click_quote">Get a quote</a>}

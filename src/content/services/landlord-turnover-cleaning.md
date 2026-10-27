@@ -2,6 +2,7 @@
 url: "property-management/landlord-turnover-cleaning"
 level: "secondary"
 parent: "property-management"
+breadcrumbParent: "house-cleaning"
 order: 1
 menuLabel: "Landlord turnover cleaning"
 title: "Rental Turnover Cleaning for Landlords, QC | FreshStart"

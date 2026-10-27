@@ -1,0 +1,117 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import CtaButtons from '../../components/CtaButtons.astro';
+import SiteImage from '../../components/SiteImage.astro';
+import AreasServed from '../../components/AreasServed.astro';
+import biz from '../../data/business.json';
+import { findImage } from '../../lib/images';
+
+export async function getStaticPaths() {
+  const areas = await getCollection('areas', ({ data }) => !data.draft);
+  const services = await getCollection('services', ({ data }) => !data.draft);
+  return areas.map((entry) => ({ params: { slug: entry.data.slug }, props: { entry, services } }));
+}
+
+const { entry, services } = Astro.props;
+const d = entry.data;
+const { Content } = await render(entry);
+const site = Astro.site!;
+const slot = `area-${d.slug}`;
+const hasHero = findImage(slot) !== null;
+const pageUrl = new URL(`/areas/${d.slug}/`, site).href;
+const top = d.services.map((u) => services.find((s) => s.data.url === u)).filter((s) => s !== undefined);
+const serviceUrl = (u: string) => services.find((s) => s.data.url === u);
+const msg = `Hi FreshStart! I'd like a cleaning quote in ${d.name}.`;
+
+const jsonLd: object[] = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: 'Cleaning services',
+    name: d.h1,
+    description: d.description,
+    url: pageUrl,
+    provider: { '@type': 'LocalBusiness', '@id': new URL('/#business', site).href, name: biz.name, url: new URL('/', site).href },
+    areaServed: { '@type': 'Place', name: `${d.name}, ${biz.city}` },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: new URL('/', site).href },
+      { '@type': 'ListItem', position: 2, name: `Cleaning services in ${d.name}`, item: pageUrl },
+    ],
+  },
+];
+if (d.faqs.length) {
+  jsonLd.push({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: d.faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+  });
+}
+---
+<Base title={d.title} description={d.description} jsonLd={jsonLd} ogSlot={slot} ctaMessage={msg}>
+  <section class="hero">
+    <div class={`wrap${hasHero ? ' hero-grid' : ''}`}>
+      <div>
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <span>{d.name}</span></nav>
+        <h1>{d.h1}</h1>
+        <p>{d.hero}</p>
+        <p class="cta-row"><CtaButtons message={msg} quote dark /></p>
+        <div class="trust"><span>Transport included in {d.name}</span><span>Photo report</span><span>48-hour re-clean</span></div>
+      </div>
+      {hasHero && <SiteImage slot={slot} priority class="hero-img" />}
+    </div>
+  </section>
+  <div class="wrap">
+    <article class="content"><Content /></article>
+
+    {top.length > 0 && (
+      <section>
+        <h2>Most booked in {d.name}</h2>
+        <div class="cards">
+          {top.map((s) => (
+            <a class="card" href={`/${s!.data.url}/`}><h3>{s!.data.menuLabel ?? s!.data.h1}</h3><p style="margin:0 0 6px">{s!.data.hero}</p><span class="price">{s!.data.priceFrom}</span></a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {d.jobs.length > 0 && (
+      <section>
+        <h2>Recent jobs in {d.name}</h2>
+        {d.jobs.map((j) => {
+          const s = serviceUrl(j.service);
+          return (
+            <div class="card" style="margin-bottom:16px">
+              <h3>{j.title}</h3>
+              <p style="margin:0 0 6px;color:#4F6461;font-size:15px">{j.month}{s && <> · <a href={`/${s.data.url}/`}>{s.data.menuLabel ?? s.data.h1}</a></>}</p>
+              <p style="margin:0">{j.summary}</p>
+              {j.image && <SiteImage slot={j.image} class="section-img" />}
+            </div>
+          );
+        })}
+      </section>
+    )}
+
+    <p style="font-size:15px;color:#4F6461">{biz.transportNote} Prices updated {biz.pricesUpdated}. <a href="/prices/">See all our prices</a>.</p>
+
+    {d.faqs.length > 0 && (
+      <section class="faq">
+        <h2>Questions from {d.name} clients</h2>
+        <dl>{d.faqs.map((f) => (<><dt>{f.q}</dt><dd>{f.a}</dd></>))}</dl>
+      </section>
+    )}
+
+    <AreasServed heading="We also clean in" exclude={d.name} />
+  </div>
+  <section class="band">
+    <div class="wrap">
+      <h2 style="margin-top:0">Book a clean in {d.name}</h2>
+      <p>Send your address or village, the service and your preferred date. We reply with a fixed price, usually within the hour.</p>
+      <p class="cta-row"><CtaButtons message={msg} callLabel /></p>
+    </div>
+  </section>
+</Base>

@@ -4,7 +4,7 @@ level: "primary"
 order: 2
 menuLabel: "Business cleaning"
 title: "Commercial Cleaning in Fairview & Novaliches | FreshStart"
-description: "Scheduled cleaning for small offices, clinics, salons and shops in North Quezon City. Fixed monthly price, checklist and photo log every visit. From ₱8,490."
+description: "Scheduled cleaning for small offices, clinics, salons and shops in North Quezon City. Fixed monthly price and a photo log every visit. From ₱8,490."
 h1: "Commercial cleaning service for offices, clinics and shops in Fairview and Novaliches"
 hero: "The same trained cleaner on fixed days, before or after your business hours, with every supply included."
 priceFrom: "From ₱8,490 a month"

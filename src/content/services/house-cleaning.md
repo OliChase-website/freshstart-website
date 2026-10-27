@@ -4,7 +4,7 @@ level: "primary"
 order: 1
 menuLabel: "House cleaning"
 title: "House Cleaning Service in Fairview & Novaliches | FreshStart"
-description: "Trained, NBI-cleared cleaners for houses, condos and apartments in Fairview, Lagro and Novaliches. Fixed prices, transport included, photo report. From ₱999."
+description: "Trained, NBI-cleared cleaners for houses, condos and apartments in Fairview, Lagro and Novaliches, Quezon City. Fixed prices with transport. From ₱999."
 h1: "House cleaning service in Fairview, Lagro and Novaliches"
 hero: "A trained team cleans your house, condo or apartment to a written checklist and sends you before-and-after photos."
 priceFrom: "From ₱999"

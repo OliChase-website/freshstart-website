@@ -5,7 +5,7 @@ order: 7
 menuLabel: "Garbage and junk removal"
 draft: true
 title: "Garbage Collection & Junk Removal, Quezon City | FreshStart"
-description: "Village garbage collection for HOAs and junk removal for homes in Quezon City: door-to-door pickup, segregation, bulky items hauled. Authorised and on schedule."
+description: "Village garbage collection for HOAs and junk removal for homes in Quezon City: door-to-door pickup, segregation and bulky items hauled, on schedule."
 h1: "Garbage collection and junk removal in Quezon City"
 hero: "Cleaner streets for your village and a clutter-free home."
 priceFrom: "Junk removal from ₱3,490"

@@ -1,0 +1,21 @@
+---
+// "Areas we serve" block: the six launch areas, each linked to its area page once that page is live.
+import { getCollection } from 'astro:content';
+import biz from '../data/business.json';
+
+interface Props { heading?: string; exclude?: string }
+const { heading = 'Areas we serve', exclude } = Astro.props;
+const live = await getCollection('areas', ({ data }) => !data.draft);
+const pageFor = (name: string) => live.find((a) => a.data.name === name);
+const names = biz.areas.filter((a) => a !== exclude);
+---
+<section class="areas">
+  <h2>{heading}</h2>
+  <p>
+    We clean homes and businesses in {names.map((name, i) => {
+      const page = pageFor(name);
+      const sep = i === 0 ? '' : i === names.length - 1 ? ' and ' : ', ';
+      return <>{sep}{page ? <a href={`/areas/${page.data.slug}/`}>{name}</a> : name}</>;
+    })}, {biz.city}. Transport is included in all of these areas; elsewhere in {biz.city} add ₱200.
+  </p>
+</section>

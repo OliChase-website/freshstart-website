@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro';
+import biz from '../data/business.json';
+---
+<Base title="Privacy Notice | FreshStart Cleaning Co." description="How FreshStart Cleaning Co. collects, uses and protects the personal information you share when you ask for a quote or book a cleaning.">
+  <section class="hero"><div class="wrap"><h1>Privacy notice</h1><p>We collect only what we need to quote, schedule and invoice your cleaning, in line with the Data Privacy Act of 2012 (Republic Act No. 10173).</p></div></section>
+  <div class="wrap content">
+    <h2>What we collect</h2>
+    <ul>
+      <li>Your name, mobile number or Messenger/Viber account, and email if you send one.</li>
+      <li>The address or barangay of the place to be cleaned, its size and the photos you send for the quote.</li>
+      <li>Booking, payment and invoice records (we do not store card details; payments go through GCash, Maya or your bank).</li>
+      <li>Basic website usage data (pages visited, buttons clicked) through Google Analytics, without your name.</li>
+    </ul>
+    <h2>How we use it</h2>
+    <ul>
+      <li>To reply to your enquiry, quote, schedule the crew and send your photo report and invoice.</li>
+      <li>To ask for feedback or a review after the job, and to remind you of repeat cleans if you agreed to them.</li>
+      <li>To meet our tax and accounting obligations.</li>
+    </ul>
+    <p>We never sell your information. We share it only with the crew assigned to your job and with the payment and messaging services needed to complete it.</p>
+    <h2>Photos in your home</h2>
+    <p>Our before-and-after photos show the areas we cleaned. We never photograph your family, documents or personal items, and we use job photos on our website or social media only with your permission and without house numbers or anything that identifies you.</p>
+    <h2>How long we keep it</h2>
+    <p>Enquiries that do not become bookings are deleted after 12 months. Booking and invoice records are kept for as long as the law requires for tax purposes.</p>
+    <h2>Your rights</h2>
+    <p>You can ask to see, correct or delete your personal information, or withdraw consent to marketing messages, by emailing <a href={`mailto:${biz.email}`}>{biz.email}</a>.</p>
+  </div>
+</Base>

@@ -1,33 +1,54 @@
 ---
 import '../styles/global.css';
 import biz from '../data/business.json';
+import CtaButtons from '../components/CtaButtons.astro';
+import { contact, isSet, sameAs } from '../lib/contact';
+import { shareImage } from '../lib/images';
 
 interface Props {
   title: string;
   description: string;
   jsonLd?: object[];
   noindex?: boolean;
+  ogSlot?: string;       // image slot to use for link previews (falls back to the site default)
+  ctaMessage?: string;   // pre-filled Messenger text for the sticky mobile bar
 }
-const { title, description, jsonLd = [], noindex = false } = Astro.props;
-const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const { title, description, jsonLd = [], noindex = false, ogSlot, ctaMessage } = Astro.props;
+const site = Astro.site!;
+const canonical = new URL(Astro.url.pathname, site).href;
+const og = await shareImage(site, ogSlot);
+const isHome = Astro.url.pathname === '/';
 
+// Full LocalBusiness on the home page; other pages reference it by @id from their Service markup.
 const localBusiness = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
-  '@id': new URL('/#business', Astro.site).href,
+  '@id': new URL('/#business', site).href,
   name: biz.name,
-  url: new URL('/', Astro.site).href,
-  telephone: biz.phone,
+  slogan: biz.tagline,
+  description: biz.description,
+  url: new URL('/', site).href,
+  image: og.url,
+  ...(contact.phone ? { telephone: contact.phone } : {}),
   email: biz.email,
-  priceRange: '₱690–₱69,990',
+  priceRange: biz.priceRange,
+  currenciesAccepted: 'PHP',
+  paymentAccepted: biz.paymentAccepted,
   openingHours: biz.openingHours,
-  areaServed: biz.areas.map((a) => ({ '@type': 'Place', name: `${a}, ${biz.city}` })),
-  sameAs: [biz.facebook, biz.instagram, biz.tiktok].filter((u) => !u.includes('[')),
+  address: { '@type': 'PostalAddress', addressLocality: biz.city, addressRegion: 'Metro Manila', addressCountry: 'PH' },
+  areaServed: [
+    ...biz.areas.map((a) => ({ '@type': 'Place', name: `${a}, ${biz.city}` })),
+    { '@type': 'City', name: biz.city },
+  ],
+  ...(contact.gbp ? { hasMap: contact.gbp } : {}),
+  ...(sameAs.length ? { sameAs } : {}),
 };
-const schemas = [localBusiness, ...jsonLd];
+const schemas = isHome ? [localBusiness, ...jsonLd] : jsonLd;
+const ga4 = isSet(biz.ga4Id) ? biz.ga4Id : null;
+const gsc = isSet(biz.searchConsoleVerification) ? biz.searchConsoleVerification : null;
 ---
 <!doctype html>
-<html lang="en">
+<html lang="en-PH">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -35,17 +56,41 @@ const schemas = [localBusiness, ...jsonLd];
   <meta name="description" content={description} />
   <link rel="canonical" href={canonical} />
   {noindex && <meta name="robots" content="noindex" />}
+  {gsc && <meta name="google-site-verification" content={gsc} />}
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_PH" />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonical} />
   <meta property="og:site_name" content={biz.name} />
+  <meta property="og:image" content={og.url} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content={og.alt} />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0E4F4A" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;600;700&display=swap" />
   {schemas.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
+  {ga4 && (
+    <>
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=${ga4}`}></script>
+      <script is:inline define:vars={{ ga4 }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', ga4);
+        // Click tracking for Messenger, Viber, call, email and booking buttons (data-track="click_...").
+        document.addEventListener('click', function (e) {
+          var a = e.target.closest && e.target.closest('[data-track]');
+          if (a) gtag('event', a.getAttribute('data-track'), { link_url: a.href, page_path: location.pathname });
+        });
+      </script>
+    </>
+  )}
 </head>
 <body>
   <header class="site-header">
@@ -67,13 +112,17 @@ const schemas = [localBusiness, ...jsonLd];
     <div class="wrap">
       <p><strong>{biz.name}</strong> · {biz.tagline}</p>
       <p>Serving {biz.areas.join(', ')}, {biz.city}. {biz.hours}.</p>
-      <p>Call or Viber {biz.phoneDisplay} · <a href={biz.messengerUrl}>Messenger</a> · <a href={`mailto:${biz.email}`}>{biz.email}</a></p>
-      <p><a href="/prices/">Prices</a> · <a href="/about/">About and trust</a> · <a href="/blog/">Guides</a> · <a href="/book/">Book a clean</a></p>
+      <p>
+        {contact.phone && <><a href={`tel:${contact.phone}`} data-track="click_call">Call {contact.phoneDisplay ?? contact.phone}</a> · </>}
+        {contact.viber && <><a href={contact.viber} data-track="click_viber">Viber</a> · </>}
+        {contact.messenger && <><a href={contact.messenger} data-track="click_messenger">Messenger</a> · </>}
+        <a href={`mailto:${contact.email}`} data-track="click_email">{contact.email}</a>
+      </p>
+      <p><a href="/prices/">Prices</a> · <a href="/about/">About and trust</a> · <a href="/blog/">Guides</a> · <a href="/book/">Book a clean</a> · <a href="/privacy/">Privacy</a></p>
     </div>
   </footer>
   <div class="sticky-cta">
-    <a class="btn btn-primary" href={biz.messengerUrl}>Book on Messenger</a>
-    <a class="btn btn-secondary" href={`tel:${biz.phone}`}>Call</a>
+    <CtaButtons message={ctaMessage} compact />
   </div>
 </body>
 </html>

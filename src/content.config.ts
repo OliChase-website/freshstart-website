@@ -11,8 +11,8 @@ const services = defineCollection({
     url: z.string(),                       // path without slashes, e.g. "house-cleaning/deep-cleaning"
     level: z.enum(['primary', 'secondary']),
     parent: z.string().optional(),         // url of the primary page
-    title: z.string().max(70),             // <title> tag
-    description: z.string().max(165),      // meta description
+    title: z.string().max(60),             // <title> tag (GBP doc rule: under 60 characters)
+    description: z.string().max(155),      // meta description (under 155)
     h1: z.string(),
     hero: z.string(),                      // one-line promise under the H1
     priceFrom: z.string(),                 // e.g. "From ₱2,890"
@@ -24,6 +24,32 @@ const services = defineCollection({
     draft: z.boolean().default(false),     // true = not published (service not available yet)
     faqs: z.array(faq).default([]),
     related: z.array(z.string()).default([]),
+    breadcrumbParent: z.string().optional(), // interim breadcrumb parent while the real parent page is a draft
+  }),
+});
+
+// One Markdown file per service-area page (e.g. /areas/fairview/). The playbook rule: publish an area
+// page only once there are at least two real jobs (and ideally reviews) there, so they start as drafts.
+const job = z.object({
+  title: z.string(),            // "Deep clean of a 2BR townhouse"
+  service: z.string(),          // service page url, e.g. "house-cleaning/deep-cleaning"
+  month: z.string(),            // "November 2026"
+  summary: z.string(),          // 1-2 sentences: what was done, how long, what the client needed
+  image: z.string().optional(), // optional image slot key in src/data/images.json
+});
+const areas = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/areas' }),
+  schema: z.object({
+    name: z.string(),                       // must match a name in business.json "areas"
+    slug: z.string(),                       // page address: /areas/<slug>/
+    title: z.string().max(60),
+    description: z.string().max(155),
+    h1: z.string(),
+    hero: z.string(),
+    services: z.array(z.string()).default([]), // the 3-4 services most booked there (service urls)
+    jobs: z.array(job).default([]),
+    faqs: z.array(faq).default([]),
+    draft: z.boolean().default(true),
   }),
 });
 
@@ -52,4 +78,4 @@ const social = defineCollection({
   }),
 });
 
-export const collections = { services, blog, social };
+export const collections = { services, areas, blog, social };

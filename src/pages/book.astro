@@ -1,10 +1,26 @@
 ---
 import Base from '../layouts/Base.astro';
-import biz from '../data/business.json';
+import CtaButtons from '../components/CtaButtons.astro';
+import SiteImage from '../components/SiteImage.astro';
+import { contact } from '../lib/contact';
+import { findImage } from '../lib/images';
+const hasHero = findImage('book-hero') !== null;
 ---
-<Base title="Book a Cleaning in Fairview, Lagro & Novaliches | FreshStart" description="Book a FreshStart cleaning on Messenger, Viber or by phone. Send your home size, service and date and get a fixed price, usually within the hour.">
-  <section class="hero"><div class="wrap"><h1>Book a clean or get a quote</h1><p>Message us and we reply with a fixed price, usually within the hour, between 7 AM and 9 PM.</p>
-    <p><a class="btn btn-primary" href={biz.messengerUrl}>Book on Messenger</a> <a class="btn btn-secondary" href={`tel:${biz.phone}`} style="background:#0A3834">Call or Viber {biz.phoneDisplay}</a></p></div></section>
+<Base title="Book a Cleaning in Fairview, Lagro & Novaliches | FreshStart" description="Book a FreshStart cleaning on Messenger, Viber or by phone. Send your home size, service and date and get a fixed price, usually within the hour." ogSlot="book-hero">
+  <section class="hero">
+    <div class={`wrap${hasHero ? ' hero-grid' : ''}`}>
+      <div>
+        <h1>Book a clean or get a quote</h1>
+        <p>Message us and we reply with a fixed price, usually within the hour, between 7 AM and 9 PM. We clean in Fairview, North Fairview, Greater Lagro, Kaligayahan, Pasong Putik and Novaliches, Quezon City.</p>
+        <p class="cta-row">
+          <CtaButtons callLabel dark />
+          {contact.bookingForm && <a class="btn btn-secondary" href={contact.bookingForm} style="background:#0A3834" data-track="click_booking_form">Booking form</a>}
+          <a class="btn btn-secondary" href={`mailto:${contact.email}`} style="background:#0A3834" data-track="click_email">Email us</a>
+        </p>
+      </div>
+      {hasHero && <SiteImage slot="book-hero" priority class="hero-img" />}
+    </div>
+  </section>
   <div class="wrap">
     <h2>To quote quickly, tell us</h2>
     <ol>
@@ -14,6 +30,8 @@ import biz from '../data/business.json';
       <li>Your preferred date and time</li>
       <li>3 to 5 photos of the area</li>
     </ol>
+    <p>Not sure of the price yet? Every rate is on our <a href="/prices/">prices page</a>.</p>
+    <p style="font-size:15px;color:#4F6461">We use your details only to quote, schedule and invoice your job. See our <a href="/privacy/">privacy notice</a>.</p>
     <!-- The enquiry form connects to the AI enquiry automation once its endpoint exists (set the action URL). -->
   </div>
 </Base>

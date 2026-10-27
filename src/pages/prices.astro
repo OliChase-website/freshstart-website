@@ -6,8 +6,8 @@ const all = await getCollection('services', ({ data }) => !data.draft);
 const primaries = all.filter((s) => s.data.level === 'primary').sort((a, b) => a.data.order - b.data.order);
 const orphans = all.filter((s) => s.data.level === 'secondary' && !primaries.some((p) => p.data.url === s.data.parent));
 ---
-<Base title={`Cleaning Service Prices in Quezon City (${biz.pricesUpdated}) | FreshStart`} description="All FreshStart cleaning prices for Fairview, Lagro and Novaliches: house cleaning, deep cleaning, move-out, Airbnb, after-party and business cleaning. Transport included.">
-  <section class="hero"><div class="wrap"><h1>Our prices</h1><p>Fixed prices, updated {biz.pricesUpdated}. {biz.transportNote}</p></div></section>
+<Base title={`Cleaning Service Rates, Quezon City (${biz.pricesUpdated.replace(/^(\w{3})\w*/, '$1')}) | FreshStart`} description="Cleaning service rates in Fairview, Lagro and Novaliches, QC: house, deep, move-out, Airbnb, after-party and business cleaning. Transport included.">
+  <section class="hero"><div class="wrap"><h1>Cleaning service rates in Quezon City</h1><p>Fixed prices for Fairview, North Fairview, Greater Lagro, Kaligayahan, Pasong Putik and Novaliches, updated {biz.pricesUpdated}. {biz.transportNote}</p></div></section>
   <div class="wrap">
     {primaries.map((p) => (
       <section>
