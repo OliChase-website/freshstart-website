@@ -30,4 +30,4 @@ Beds stripped and remade with fresh linen; bathroom, kitchen and floors cleaned;
 | 2 bedrooms | 2 cleaners, 1.5 h | ₱1,690 |
 | 3 bedrooms or house | 2 cleaners, 2.5 h | ₱2,490 |
 
-Linen exchange ₱320 per bed set · same-day +₱300 · back-to-back +₱200 · restocking at cost + 15% · **Host Plus** (8+ turnovers a month): ₱50 off each.
+Weekend turnovers available at +30% · linen exchange ₱320 per bed set · same-day +₱300 · back-to-back +₱200 · restocking at cost + 15% · **Host Plus** (8+ turnovers a month): ₱50 off each.
