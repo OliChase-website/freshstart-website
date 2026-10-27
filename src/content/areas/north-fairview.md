@@ -6,7 +6,7 @@ description: "Regular, deep and move-out cleaning for houses, townhouses and ren
 h1: "Cleaning services in North Fairview, Quezon City"
 hero: "Trained, NBI-cleared cleaners for North Fairview houses, townhouses and rentals, with fixed prices and transport included."
 services: ["house-cleaning/regular-cleaning-plans", "house-cleaning/deep-cleaning", "house-cleaning/move-in-move-out-cleaning", "property-management/landlord-turnover-cleaning"]
-faqs: [{"q": "Is transport included in North Fairview?", "a": "Yes. There is no transport fee anywhere in our six service areas."}, {"q": "Will the same cleaners come every time?", "a": "On a weekly or every-two-weeks plan, yes: the same trained team visits each time."}, {"q": "Do I need to provide supplies?", "a": "No. We bring all equipment and cleaning products. We only need water and electricity."}, {"q": "How do I pay?", "a": "GCash, Maya or bank transfer. Our cleaners never collect cash."}]
+faqs: [{"q": "Is transport included in North Fairview?", "a": "Yes. There is no transport fee anywhere in our six service areas."}, {"q": "Will the same cleaners come every time?", "a": "On a weekly or every-two-weeks plan, yes: the same trained team visits each time."}, {"q": "Do I need to provide supplies?", "a": "No. We bring all equipment and cleaning products. We only need water and electricity."}, {"q": "How do I pay?", "a": "GCash or bank transfer. Our cleaners never collect cash."}]
 draft: true
 jobs: []
 ---

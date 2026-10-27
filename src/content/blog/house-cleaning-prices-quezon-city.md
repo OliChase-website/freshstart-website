@@ -40,7 +40,7 @@ The cheapest way to try a professional clean is a short, fixed-scope visit. Fres
 - **Size of the home.** Price follows floor area and the number of bathrooms, because that sets how many cleaners come and for how long.
 - **Type of clean.** A regular clean keeps a home tidy; a deep clean goes inside cabinets, scrubs grout and tiles, cleans window tracks and moves furniture, so it takes two to three times longer.
 - **How often.** Weekly and every-two-weeks plans cost less per visit than one-time cleans, because the home never gets far behind.
-- **Day and time.** Sundays and special non-working days usually cost more (FreshStart adds 30%), regular holidays more again (100%), and late-night work extra (15% after 10 PM).
+- **Day and time.** Weekends and special non-working days usually cost more (FreshStart adds 30%), regular holidays more again (100%), and late-night work extra (15% after 10 PM).
 - **Add-ons.** Inside the fridge, inside the oven, inside windows and laundry folding are usually priced separately.
 
 ## How to compare cleaning quotes fairly
@@ -53,13 +53,13 @@ Two quotes with the same headline price can be very different jobs. Ask each com
 4. **What is on the checklist?** Ask for it in writing.
 5. **Are the cleaners screened?** Ask about NBI and barangay clearance, and whether they are employees or freelancers.
 6. **What happens if something is missed or broken?** Look for a re-clean guarantee and a clear damage policy.
-7. **How do you pay?** Paying the company by GCash, Maya or bank transfer, with an official invoice, is safer than paying cash to the crew.
+7. **How do you pay?** Paying the company by GCash or bank transfer, with an official invoice, is safer than paying cash to the crew.
 
 ## How to keep your cleaning bill down
 
 - Start with a deep clean once, then switch to a regular plan: the regular visits stay short because the home never builds up dirt.
 - Declutter surfaces before the crew arrives, so their time goes to cleaning, not tidying.
-- Book on a weekday rather than a Sunday or holiday.
+- Book on a weekday rather than a weekend or holiday.
 - If you own several rentals, ask about landlord rates: FreshStart gives 10% off every turnover for three or more a year.
 
 See every current rate on the [FreshStart prices page](/prices/), or read more about [house cleaning](/house-cleaning/) and [deep cleaning](/house-cleaning/deep-cleaning/).

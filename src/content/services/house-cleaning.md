@@ -11,7 +11,7 @@ priceFrom: "From ₱999"
 gbp: "House cleaning service (primary category)"
 serviceType: "House cleaning service"
 offerPrice: 999
-faqs: [{"q": "Do I need to provide cleaning supplies?", "a": "No. We bring all equipment and cleaning products. We only need water and electricity."}, {"q": "Do I need to be home?", "a": "For the first visit, yes, so we can agree on priorities. After that you can leave a key with your guard or admin, or let us in with a smart lock."}, {"q": "How many cleaners will come?", "a": "One cleaner for studios and 1BR units, two for 2BR units and houses, and three for deep cleans of larger houses."}, {"q": "What if something gets damaged?", "a": "Tell us right away. We report breakage with photos and repair or reimburse it."}, {"q": "Can I cancel or move a booking?", "a": "Yes, free up to 24 hours before. Later cancellations cost ₱300."}, {"q": "How do I pay?", "a": "GCash, Maya or bank transfer to FreshStart Cleaning Co. Our cleaners never collect cash."}]
+faqs: [{"q": "Do I need to provide cleaning supplies?", "a": "No. We bring all equipment and cleaning products. We only need water and electricity."}, {"q": "Do I need to be home?", "a": "For the first visit, yes, so we can agree on priorities. After that you can leave a key with your guard or admin, or let us in with a smart lock."}, {"q": "How many cleaners will come?", "a": "One cleaner for studios and 1BR units, two for 2BR units and houses, and three for deep cleans of larger houses."}, {"q": "What if something gets damaged?", "a": "Tell us right away. We report breakage with photos and repair or reimburse it."}, {"q": "Can I cancel or move a booking?", "a": "Yes, free up to 24 hours before. Later cancellations cost ₱300."}, {"q": "How do I pay?", "a": "GCash or bank transfer to FreshStart Cleaning Co. Our cleaners never collect cash."}]
 related: ["commercial-cleaning", "property-management/landlord-turnover-cleaning"]
 draft: false
 ---
@@ -38,7 +38,7 @@ We clean single houses in Greater Lagro and Fairview, townhouses in Pasong Putik
 ## How it works
 
 1. **Book** on Messenger, Viber or by phone with your home size, the service and your date.
-2. **Confirm.** We send the price and your team's names. Jobs over ₱3,000 need a 50% deposit.
+2. **Confirm.** We send the price and your team's names. A 50% deposit by GCash or bank transfer locks the date for jobs ₱3,000 and up, and for first-time move-out or post-renovation jobs; smaller jobs pay in full on completion.
 3. **We arrive** in uniform with company IDs, shoe covers and all equipment, and take "before" photos.
 4. **We clean** to the checklist and walk through the house with you.
 5. **You get the photo report** and pay the balance. Missed something? Tell us within 48 hours and we come back free.
