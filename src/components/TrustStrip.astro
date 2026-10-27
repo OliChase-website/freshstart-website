@@ -1,0 +1,26 @@
+---
+// Four plain facts under the home hero. Keep every line true and checkable.
+import biz from '../data/business.json';
+const items = [
+  { icon: 'tag', title: 'Fixed, published prices', text: 'Every rate is on our prices page before you book.' },
+  { icon: 'list', title: 'Room-by-room checklist', text: 'The same written checklist on every clean.' },
+  { icon: 'pin', title: 'Six North QC areas', text: `${biz.areas.slice(0, 3).join(', ')} and more, transport included.` },
+  { icon: 'clock', title: 'Monday to Friday', text: '7 AM to 9 PM, including after-work slots.' },
+];
+const paths: Record<string, string> = {
+  tag: 'M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9-9-9Zm5-5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z',
+  list: 'M9 6h11M9 12h11M9 18h11M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2',
+  pin: 'M12 21s-7-6.2-7-12a7 7 0 1 1 14 0c0 5.8-7 12-7 12Zm0-9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z',
+  clock: 'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0-13v5l3 2',
+};
+---
+<section class="truststrip" aria-label="Why book FreshStart">
+  <div class="wrap truststrip-grid">
+    {items.map((i) => (
+      <div class="truststrip-item">
+        <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d={paths[i.icon]} /></svg>
+        <div><strong>{i.title}</strong><span>{i.text}</span></div>
+      </div>
+    ))}
+  </div>
+</section>

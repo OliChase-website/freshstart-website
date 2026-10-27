@@ -4,9 +4,11 @@ import Base from '../layouts/Base.astro';
 import CtaButtons from '../components/CtaButtons.astro';
 import SiteImage from '../components/SiteImage.astro';
 import AreasServed from '../components/AreasServed.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import Faqs from '../components/Faqs.astro';
 import biz from '../data/business.json';
 import { contact } from '../lib/contact';
-import { findImage, shareImage } from '../lib/images';
+import { findImage, findImageOrParent, shareImage } from '../lib/images';
 
 export async function getStaticPaths() {
   const all = await getCollection('services', ({ data }) => !data.draft);
@@ -31,6 +33,7 @@ const related = d.related
 const pageUrl = new URL(`/${d.url}/`, site).href;
 const hasHero = findImage(d.url) !== null;
 const share = await shareImage(site, d.url);
+const showPhoto = findImageOrParent(d.url) !== null;
 
 const crumbs = [{ name: 'Home', url: '/' }];
 if (parent) crumbs.push({ name: parent.data.menuLabel ?? parent.data.h1, url: `/${parent.data.url}/` });
@@ -87,34 +90,28 @@ if (d.faqs.length) {
 const msg = `Hi FreshStart! I'd like a quote for ${(d.menuLabel ?? d.h1).toLowerCase()}.`;
 ---
 <Base title={d.title} description={d.description} jsonLd={jsonLd} ogSlot={d.url} ctaMessage={msg}>
-  <section class="hero">
-    <div class={`wrap${hasHero ? ' hero-grid' : ''}`}>
-      <div>
-        <nav class="crumbs" aria-label="Breadcrumb">
-          {crumbs.map((c, i) => (i < crumbs.length - 1 ? <><a href={c.url}>{c.name}</a> › </> : <span>{c.name}</span>))}
-        </nav>
-        <h1>{d.h1}</h1>
-        <p>{d.hero}</p>
-        <p class="area-line">Serving {biz.areas.join(', ')}, {biz.city}</p>
-        <p class="price" style="font-size:1.4rem;color:#FF9A5C">{d.priceFrom}</p>
-        <p class="cta-row"><CtaButtons message={msg} quote dark /></p>
-        <div class="trust"><span>Transport included</span><span>Trained, NBI-cleared crew</span><span>Photo report</span><span>48-hour re-clean</span></div>
-      </div>
-      {hasHero && <SiteImage slot={d.url} priority class="hero-img" />}
+  <section class={showPhoto ? 'phero' : 'hero'}>
+    {showPhoto && <div class="phero-media"><SiteImage slot={d.url} fallback priority sizes="(min-width: 900px) 50vw, 100vw" /></div>}
+    <div class={showPhoto ? 'wrap phero-body' : 'wrap'}>
+      <nav class="crumbs" aria-label="Breadcrumb">
+        {crumbs.map((c, i) => (i < crumbs.length - 1 ? <><a href={c.url}>{c.name}</a> › </> : <span>{c.name}</span>))}
+      </nav>
+      <h1>{d.h1}</h1>
+      <p class="phero-lede">{d.hero}</p>
+      <p class="area-line">Serving {biz.areas.join(', ')}, {biz.city}</p>
+      <p class="pricetag">{d.priceFrom}</p>
+      <p class="cta-row"><CtaButtons message={msg} quote dark /></p>
+      <div class="trust"><span>Transport included</span><span>Trained, NBI-cleared crew</span><span>Photo report</span><span>48-hour re-clean</span></div>
     </div>
   </section>
 
   <div class="wrap">
     {children.length > 0 && (
-      <section>
+      <section class="section">
         <h2>Our {(d.menuLabel ?? d.h1).toLowerCase()} services</h2>
-        <div class="cards">
+        <div class="tiles">
           {children.map((c) => (
-            <a class="card" href={`/${c.data.url}/`}>
-              <h3>{c.data.menuLabel ?? c.data.h1}</h3>
-              <p style="margin:0 0 6px">{c.data.hero}</p>
-              <span class="price">{c.data.priceFrom}</span>
-            </a>
+            <ServiceCard url={c.data.url} label={c.data.menuLabel ?? c.data.h1} blurb={c.data.hero} price={c.data.priceFrom} />
           ))}
         </div>
       </section>
@@ -124,28 +121,21 @@ const msg = `Hi FreshStart! I'd like a quote for ${(d.menuLabel ?? d.h1).toLower
       <Content />
     </article>
 
-    <p style="font-size:15px;color:#4F6461">{biz.transportNote} Prices updated {biz.pricesUpdated}. <a href="/prices/">See all our prices</a>.</p>
+    <p class="muted">{biz.transportNote} Prices updated {biz.pricesUpdated}. <a href="/prices/">See all our prices</a>.</p>
 
     <AreasServed />
 
-    {d.faqs.length > 0 && (
-      <section class="faq">
-        <h2>Frequently asked questions</h2>
-        <dl>
-          {d.faqs.map((f) => (<><dt>{f.q}</dt><dd>{f.a}</dd></>))}
-        </dl>
-      </section>
-    )}
+    {d.faqs.length > 0 && <Faqs faqs={d.faqs} />}
 
     {(related.length > 0 || (parent && d.level === 'secondary')) && (
-      <section>
+      <section class="section">
         <h2>Related services</h2>
-        <div class="cards">
+        <div class="tiles">
           {parent && d.level === 'secondary' && !related.some((r) => r!.data.url === parent.data.url) && (
-            <a class="card" href={`/${parent.data.url}/`}><h3>All {(parent.data.menuLabel ?? parent.data.h1).toLowerCase()} services</h3><span class="price">{parent.data.priceFrom}</span></a>
+            <ServiceCard url={parent.data.url} label={`All ${(parent.data.menuLabel ?? parent.data.h1).toLowerCase()} services`} price={parent.data.priceFrom} />
           )}
           {related.map((r) => (
-            <a class="card" href={`/${r!.data.url}/`}><h3>{r!.data.menuLabel ?? r!.data.h1}</h3><span class="price">{r!.data.priceFrom}</span></a>
+            <ServiceCard url={r!.data.url} label={r!.data.menuLabel ?? r!.data.h1} price={r!.data.priceFrom} />
           ))}
         </div>
       </section>
@@ -154,7 +144,7 @@ const msg = `Hi FreshStart! I'd like a quote for ${(d.menuLabel ?? d.h1).toLower
 
   <section class="band">
     <div class="wrap">
-      <h2 style="margin-top:0">Ready for a fresh start?</h2>
+      <h2>Ready for a fresh start?</h2>
       <p>Send us your home size, the service and your preferred date. We reply with a fixed price, usually within the hour.</p>
       <p class="cta-row"><CtaButtons message={msg} callLabel /></p>
     </div>

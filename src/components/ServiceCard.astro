@@ -1,0 +1,27 @@
+---
+// Photo card linking to a service page. Sub-services without their own photo show the parent's.
+import SiteImage from './SiteImage.astro';
+import { findImageOrParent } from '../lib/images';
+
+interface Props {
+  url: string;
+  label: string;
+  blurb?: string;
+  price?: string;
+  wide?: boolean;   // larger tile for the main services on the home page
+}
+const { url, label, blurb, price, wide = false } = Astro.props;
+const hasImg = findImageOrParent(url) !== null;
+---
+<a class={`tile${wide ? ' tile-wide' : ''}${hasImg ? '' : ' tile-noimg'}`} href={`/${url}/`}>
+  {hasImg && (
+    <span class="tile-media">
+      <SiteImage slot={url} fallback sizes={wide ? '(min-width: 900px) 520px, 100vw' : '(min-width: 900px) 340px, 100vw'} />
+    </span>
+  )}
+  <span class="tile-body">
+    <span class="tile-title">{label}</span>
+    {blurb && <span class="tile-blurb">{blurb}</span>}
+    {price && <span class="tile-price">{price}</span>}
+  </span>
+</a>
