@@ -17,7 +17,7 @@ const houseFaqs = (live.find((s) => s.data.url === 'house-cleaning')?.data.faqs 
 const hasHero = findImage('home-hero') !== null;
 const hasBooking = findImage('home-booking') !== null;
 ---
-<Base title="Cleaning Services in Fairview & Novaliches, QC | FreshStart" description="House, condo, rental and small business cleaning in Fairview, Lagro and Novaliches, Quezon City. Fixed prices with transport and photo reports. From ₱999." ogSlot="home-hero">
+<Base title="Cleaning Services in Fairview & Novaliches, QC | FreshStart" description="House, condo, rental and small business cleaning in Fairview, Lagro and Novaliches, Quezon City. Fixed prices with transport and photo reports. From ₱999." ogSlot="og-default">
   <section class={hasHero ? 'phero' : 'hero'}>
     {hasHero && <div class="phero-media"><SiteImage slot="home-hero" priority sizes="(min-width: 900px) 50vw, 100vw" /></div>}
     <div class={hasHero ? 'wrap phero-body' : 'wrap'}>
