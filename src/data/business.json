@@ -16,9 +16,9 @@
   "bookingFormUrl": "[Google Form link]",
   "ga4Id": "[G-XXXXXXXXXX]",
   "searchConsoleVerification": "",
-  "hours": "Monday to Saturday, 7:00 AM to 7:00 PM; Sundays by appointment",
+  "hours": "Monday to Friday, 7:00 AM to 9:00 PM; closed Saturdays and Sundays",
   "openingHours": [
-    "Mo-Sa 07:00-19:00"
+    "Mo-Fr 07:00-21:00"
   ],
   "priceRange": "₱690–₱69,990",
   "paymentAccepted": "GCash, Maya, bank transfer",
