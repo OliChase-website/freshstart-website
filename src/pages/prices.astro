@@ -9,6 +9,7 @@ const orphans = all.filter((s) => s.data.level === 'secondary' && !primaries.som
 <Base title={`Cleaning Service Rates, Quezon City (${biz.pricesUpdated.replace(/^(\w{3})\w*/, '$1')}) | FreshStart`} description="Cleaning service rates in Fairview, Lagro and Novaliches, QC: house, deep, move-out, Airbnb, after-party and business cleaning. Transport included.">
   <section class="hero"><div class="wrap"><h1>Cleaning service rates in Quezon City</h1><p>Fixed prices for Fairview, North Fairview, Greater Lagro, Kaligayahan, Pasong Putik and Novaliches, updated {biz.pricesUpdated}. {biz.transportNote}</p></div></section>
   <div class="wrap">
+    <div class="callout"><p><strong>Want regular cleaning?</strong> Our <a href="/membership/">membership plans</a> (Tidy, Fresh and Spotless) give you a fixed cleaning day and one monthly price, for homes from ₱2,590 and businesses from ₱8,990 a month. Pay 6 months ahead to save 5%, or 12 months to save 10%.</p></div>
     {primaries.map((p) => (
       <section>
         <h2><a href={`/${p.data.url}/`}>{p.data.menuLabel ?? p.data.h1}</a></h2>
@@ -32,7 +33,7 @@ const orphans = all.filter((s) => s.data.level === 'secondary' && !primaries.som
     <h2>Surcharges and discounts</h2>
     <ul>
       <li>Weekends (Saturday and Sunday) and special non-working days +30%, by appointment; regular holidays +100%; work after 10 PM +15%; same-day booking +₱300.</li>
-      <li>Landlord Plan: 10% off every turnover for 3+ turnovers a year. Prepay a regular plan for 3 months: 5% off.</li>
+      <li>Landlord Plan: 10% off every turnover for 3+ turnovers a year. Memberships: pay 6 months ahead 5% off, 12 months ahead 10% off.</li>
       <li>One discount per booking. Every payment gets an official invoice; our cleaners never collect cash.</li>
     </ul>
     <h2>Payment and cancellation</h2>

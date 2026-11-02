@@ -1,0 +1,161 @@
+{
+  "_readme": "FreshStart Membership plans (source: 'FreshStart Subscription Model – Proposal', Nov 2026). Prices are per month, transport and supplies included in the six North QC areas. Edit prices here; /membership/ and the home page read this file.",
+  "payAhead": [
+    { "key": "m", "label": "Monthly", "months": 1, "discount": 0 },
+    { "key": "6", "label": "6 months", "months": 6, "discount": 0.05, "note": "save 5%" },
+    { "key": "12", "label": "12 months", "months": 12, "discount": 0.10, "note": "save 10%" }
+  ],
+  "tiers": ["Tidy", "Fresh", "Spotless"],
+  "founding": "First 20 founding members: first visit 20% off and your monthly price locked for 12 months.",
+  "plans": [
+    {
+      "id": "home",
+      "name": "Home",
+      "for": "Condos, apartments, townhouses and houses",
+      "image": "house-cleaning",
+      "sizeLabel": "Home size",
+      "bands": ["Studio, up to 30 sqm", "1 bedroom, 31–45 sqm", "2 bedrooms or townhouse, 46–80 sqm", "House, 81–120 sqm", "Large house, 121–200 sqm"],
+      "aboveBands": "Above 200 sqm, build a Custom plan.",
+      "tiers": [
+        {
+          "name": "Tidy",
+          "visits": "2 visits a month (every 2 weeks)",
+          "summary": "Our standard checklist every two weeks.",
+          "term": "Month to month, 7 days' notice",
+          "prices": [[2590, "1 × 2 h"], [2990, "1 × 2.5 h"], [4690, "2 × 2 h"], [5590, "2 × 2.5 h"], [7690, "2 × 3.5 h"]],
+          "perks": ["Kitchen, bathrooms, dusting, beds, floors and bins every visit", "Fixed day, 3-hour arrival window", "Same crew when available", "Free re-clean within 48 hours", "Before-and-after photo report", "Pause up to 2 weeks a year"]
+        },
+        {
+          "name": "Fresh",
+          "popular": true,
+          "visits": "4 visits a month (every week)",
+          "summary": "The standard checklist every week, with the same crew.",
+          "term": "Month to month, 7 days' notice",
+          "prices": [[4490, "1 × 2 h"], [5290, "1 × 2.5 h"], [7990, "2 × 2 h"], [9990, "2 × 2.5 h"], [14290, "2 × 3.5 h"]],
+          "perks": ["Everything in Tidy, every week", "Same crew, fixed day and start time", "Free re-clean within 24 hours", "1 missed visit rolls over to next month", "10% off add-ons; extra jobs booked within 48 hours", "Pause up to 4 weeks a year"]
+        },
+        {
+          "name": "Spotless",
+          "visits": "4 visits a month + a deep clean every 3 months",
+          "summary": "Weekly cleaning plus a rotating deep task, so the home never needs a big catch-up.",
+          "term": "3 months minimum, then month to month",
+          "prices": [[6090, "1 × 2.5 h"], [7190, "1 × 3 h"], [10890, "2 × 2.25 h"], [13090, "2 × 2.75 h"], [17190, "2 × 3.75 h"]],
+          "perks": ["Everything in Fresh", "A 30-minute rotating deep task every visit (range hood, grout, window tracks, baseboards)", "Full deep clean every 3 months, the first one in month 1", "2 add-ons a month included (inside fridge, oven, windows or laundry folding)", "1 weekend visit a month at no surcharge", "Same-day re-clean if reported by 12 noon", "2 rollover visits; pause up to 6 weeks a year"]
+        }
+      ],
+      "notIncluded": "Heavy build-up (needs a one-time deep clean first), post-renovation dust, work above 2 metres."
+    },
+    {
+      "id": "business",
+      "name": "Business",
+      "for": "Shops, clinics, offices, small restaurants and school wings up to 300 sqm",
+      "image": "commercial-cleaning",
+      "sizeLabel": "Floor area",
+      "bands": ["Small: shop, clinic or office, up to 60 sqm", "Medium: office or clinic, 61–150 sqm", "Large: office or school wing, 151–300 sqm"],
+      "aboveBands": "Above 300 sqm, or more than 5 visits a week, build a Custom plan.",
+      "tiers": [
+        {
+          "name": "Tidy",
+          "visits": "2 visits a week",
+          "summary": "Before opening (7–9 AM) or after closing (6–9 PM), Monday to Friday.",
+          "term": "3 months minimum, then 30 days' notice",
+          "prices": [[8990, "1 × 2 h"], [12990, "1 × 3 h"], [26190, "2 × 3 h"]],
+          "perks": ["Bins, restrooms, pantry, desks, touchpoints, floors and entrance glass every visit", "Fixed days, same cleaner when available", "Free re-clean within 48 hours", "Photo log after every visit", "One monthly BIR-registered invoice"]
+        },
+        {
+          "name": "Fresh",
+          "popular": true,
+          "visits": "3 visits a week",
+          "summary": "Adds a monthly detail task so glass, vents and chairs stay on top.",
+          "term": "3 months minimum, then 30 days' notice",
+          "prices": [[14490, "1 × 2 h"], [20590, "1 × 3 h"], [41190, "2 × 3 h"]],
+          "perks": ["Everything in Tidy, 3 times a week", "Monthly detail task: glass partitions, high dusting, pantry appliances or chair vacuuming", "Same crew, fixed start time", "Free re-clean within 24 hours", "1 missed visit rolls over; Viber reply within 2 hours"]
+        },
+        {
+          "name": "Spotless",
+          "visits": "5 visits a week",
+          "summary": "A clean space every working day, with quarterly deep cleans and a named coordinator.",
+          "term": "3 months minimum, then 30 days' notice",
+          "prices": [[23690, "1 × 2 h"], [33590, "1 × 3 h"], [67090, "2 × 3 h"]],
+          "perks": ["Everything in Fresh, every weekday", "Quarterly deep clean (floor scrub, high-level dusting)", "Saturday visit swap at no surcharge", "Named coordinator, reply within 1 hour", "Same-day re-clean if reported by 12 noon", "2 rollover visits"]
+        }
+      ],
+      "addOn": "Clinics: sanitation add-on ₱2,000 a month (a monthly deep disinfection of every room).",
+      "notIncluded": "Medical waste, instruments, sterile areas, sharps, grease traps and hood ducts, work above 3 metres. Tissue, hand soap and garbage bags are supplied by you or billed at cost."
+    },
+    {
+      "id": "industrial",
+      "name": "Industrial",
+      "for": "Warehouses, workshops, small factories and logistics hubs up to 3,000 sqm",
+      "survey": true,
+      "sizeLabel": "Floor area",
+      "bands": ["Up to 500 sqm", "501–1,500 sqm", "1,501–3,000 sqm"],
+      "aboveBands": "Larger sites: build a Custom plan after the survey.",
+      "tiers": [
+        {
+          "name": "Tidy",
+          "visits": "Every 2 weeks",
+          "summary": "Machine floor scrubbing and the essentials, twice a month.",
+          "term": "6 months minimum",
+          "crew": ["2 × 3 h", "2 × 4.5 h", "3 × 5 h"],
+          "perks": ["Walk-behind auto-scrubber on open concrete or epoxy floors", "Sweeping around racking and corners", "Restrooms, locker room, canteen and office area", "A trained machine operator on every crew"]
+        },
+        {
+          "name": "Fresh",
+          "popular": true,
+          "visits": "Every week",
+          "summary": "Weekly scrubbing plus a monthly heavy-duty task.",
+          "term": "6 months minimum",
+          "crew": ["2 × 3 h", "2 × 4.5 h", "3 × 5 h"],
+          "perks": ["Everything in Tidy, every week", "Monthly task: high-level dusting within 3 metres, floor degreasing, or wiping down switched-off machinery", "Same crew, fixed day"]
+        },
+        {
+          "name": "Spotless",
+          "visits": "2 visits a week",
+          "summary": "Twice-weekly cleaning, quarterly pressure washing and a monthly inspection.",
+          "term": "6 months minimum",
+          "crew": ["2 × 3 h", "2 × 4.5 h", "3 × 5 h"],
+          "perks": ["Everything in Fresh, twice a week", "Quarterly pressure wash of the loading bay, driveway and outside walls", "Monthly inspection with checklist and photo report", "Named coordinator"]
+        }
+      ],
+      "notIncluded": "Hazardous waste, chemical spills, inside production machinery, confined spaces, roofs and gutters, work above 3 metres, food-plant sanitation."
+    }
+  ],
+  "custom": {
+    "rates": [["Home, standard cleaning", 560], ["Business, standard cleaning", 500], ["Deep or specialised cleaning (any property)", 620], ["Industrial heavy-duty, with machines (after a site survey)", 750]],
+    "minimums": [["Home", 2500], ["Business", 8000], ["Industrial", 15000]],
+    "volume": ["40–79 cleaner-hours a month: 5% off", "80 cleaner-hours a month and up: 8% off"],
+    "rules": ["At least 2 visits a month and 2 cleaner-hours a visit", "Any weekday slot, 7 AM–9 PM; Saturday or Sunday +30%; regular holidays +100%", "1–3 cleaners, 2–6 hours a visit, confirmed after a walk-through or photos", "Add-ons at member prices (10% off)", "Fresh-level perks: same crew, 24-hour re-clean, 1 rollover visit", "Pay-ahead and volume discounts combined are capped at 12%"],
+    "examples": [
+      { "who": "Family, 3-bedroom house in Lagro", "chose": "Thursday 5–8 PM, 2 cleaners × 3 h every week, plus a 3-hour deep task by 2 cleaners once a month", "calc": "24 h × ₱560 + 6 h × ₱620", "price": 17190 },
+      { "who": "Restaurant, 120 sqm on Regalado Avenue", "chose": "1 cleaner × 2 h after closing, Monday to Saturday, plus kitchen degreasing by 2 cleaners × 3 h a month", "calc": "43.3 h × ₱500 + 8.7 Saturday h × ₱650 + 6 h × ₱620, less 5% volume discount", "price": 29490 }
+    ]
+  },
+  "perks": [
+    ["Fixed weekday and time slot", "Day fixed, 3-hour window", "Day and start time fixed", "Day and start time fixed, first pick of slots"],
+    ["Same crew each visit", "When available", "Yes", "Yes, with a named back-up"],
+    ["Free re-clean if something is missed", "Within 48 hours", "Within 24 hours", "Same day if reported by 12 noon"],
+    ["Extra one-time jobs (deep clean, move-out)", "Normal booking", "Booked within 48 hours", "Booked within 24 hours"],
+    ["Member price on add-ons", "Regular price", "10% off", "2 add-ons a month included (Home), then 10% off"],
+    ["Deeper work", "Standard checklist", "Monthly detail task (Business, Industrial)", "Rotating deep task every visit + deep clean every 3 months"],
+    ["Photo report", "Before-and-after photos", "+ monthly checklist summary", "+ quarterly walk-through with the coordinator"],
+    ["Missed-visit rollover", "None", "1 visit, used by end of next month", "2 visits, used by end of next month"],
+    ["Pause a year (travel, holidays)", "2 weeks", "4 weeks", "6 weeks"],
+    ["Weekend visit", "+30%", "+30%", "1 a month at no surcharge"],
+    ["Coordinator", "Viber, reply within business hours", "Viber, reply within 2 hours", "Named coordinator, reply within 1 hour (Business, Industrial)"],
+    ["Cleaning supplies", "Included", "Included", "Included"]
+  ],
+  "faqs": [
+    { "q": "How do I pay for a membership?", "a": "Monthly in advance by GCash or bank transfer, due by the 25th for the next month. Your first month is paid before the first visit. Every payment gets a BIR-registered invoice; our cleaners never collect cash." },
+    { "q": "Can I pay ahead for a discount?", "a": "Yes. Pay 6 months ahead and save 5%, or 12 months ahead and save 10%. Yearly payers keep their price for the whole term." },
+    { "q": "Can I skip or move a visit?", "a": "Yes, free with 24 hours' notice. Later than that, or if we can't get in on arrival, there is a ₱300 fee and the visit counts as used." },
+    { "q": "What happens to a missed visit?", "a": "Fresh members can roll over 1 visit and Spotless members 2 visits, to be used by the end of the next month. Tidy visits don't roll over." },
+    { "q": "Can I pause my membership?", "a": "Yes, for travel or holidays: up to 2 weeks a year on Tidy, 4 weeks on Fresh and 6 weeks on Spotless. Paused weeks are credited to your next bill." },
+    { "q": "How do I cancel, and do I get a refund?", "a": "Home Tidy and Fresh run month to month: tell us 7 days before your next billing date. Home Spotless, Business and Custom have a 3-month minimum, Industrial 6 months; after that, Business and Industrial give 30 days' notice. Unused prepaid months are refunded: what you paid minus the months used at the full monthly price. Delivered visits aren't refunded; the free re-clean covers quality." },
+    { "q": "Can I get a weekend visit?", "a": "Our regular hours are Monday to Friday, 7 AM to 9 PM. Weekend visits are by appointment at +30%. Home Spotless includes 1 weekend visit a month at no surcharge, and Business Spotless includes a Saturday visit swap." },
+    { "q": "Can I upgrade or switch plans?", "a": "Upgrade any time, from your next visit; the difference for the rest of the month is billed pro rata. Downgrades and plan switches start on your next billing date." },
+    { "q": "What does the price lock mean?", "a": "The first 20 founding members, and anyone who pays 12 months ahead, keep their monthly price for 12 months. Other monthly members get 60 days' notice of any price change." },
+    { "q": "What isn't included?", "a": "Heavy build-up (we do a one-time deep clean first), post-renovation dust and work above 2 metres in homes; medical waste, sterile areas, grease traps and hood ducts in businesses; hazardous waste, chemical spills, confined spaces and inside production machinery on industrial sites." },
+    { "q": "Which areas do you cover?", "a": "Fairview, North Fairview, Greater Lagro, Kaligayahan, Pasong Putik and Novaliches, Quezon City, with transport included. Elsewhere in Quezon City add ₱200 a visit." }
+  ]
+}

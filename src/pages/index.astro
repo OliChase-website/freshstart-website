@@ -9,6 +9,7 @@ import TrustStrip from '../components/TrustStrip.astro';
 import Faqs from '../components/Faqs.astro';
 import biz from '../data/business.json';
 import { findImage } from '../lib/images';
+import membership from '../data/membership.json';
 const live = await getCollection('services', ({ data }) => !data.draft);
 const primaries = live.filter(({ data }) => data.level === 'primary').sort((a, b) => a.data.order - b.data.order);
 const landlords = live.filter(({ data }) => data.parent === 'property-management').sort((a, b) => a.data.order - b.data.order);
@@ -16,6 +17,8 @@ const childrenOf = (url: string) => live.filter((s) => s.data.parent === url).so
 const houseFaqs = (live.find((s) => s.data.url === 'house-cleaning')?.data.faqs ?? []).slice(0, 5);
 const hasHero = findImage('home-hero') !== null;
 const hasBooking = findImage('home-booking') !== null;
+const homePlan = membership.plans.find((p) => p.id === 'home')!;
+const peso = (n: number) => '₱' + n.toLocaleString('en-PH');
 ---
 <Base title="Cleaning Services in Fairview & Novaliches, QC | FreshStart" description="House, condo, rental and small business cleaning in Fairview, Lagro and Novaliches, Quezon City. Fixed prices with transport and photo reports. From ₱999." ogSlot="og-default">
   <section class={hasHero ? 'phero' : 'hero'}>
@@ -32,6 +35,24 @@ const hasBooking = findImage('home-booking') !== null;
   <TrustStrip />
 
   <div class="wrap">
+    <section class="section" aria-labelledby="membership-h">
+      <h2 id="membership-h">Home cleaning memberships</h2>
+      <p class="plan-for">One fixed cleaning day, one monthly price, paid by GCash or bank transfer. Choose how clean you want the house to stay.</p>
+      <div class="mtiers">
+        {homePlan.tiers.map((t: any) => (
+          <a class={`mtier${t.popular ? ' tier-popular' : ''}`} href="/membership/#home">
+            {t.popular && <p class="tier-badge">Most popular</p>}
+            <strong>{t.name}</strong>
+            <span>{t.visits}</span>
+            <b>from {peso(Math.min(...t.prices.map((x: any) => x[0])))}/month</b>
+          </a>
+        ))}
+      </div>
+      <div class="callout"><p><strong>Founding members:</strong> the first 20 members get their first visit 20% off and keep their monthly price for 12 months.</p></div>
+      <p>We also have membership plans for shops, clinics, offices and industrial sites, and a Custom plan you build yourself.</p>
+      <p><a class="btn btn-secondary" href="/membership/">See all membership plans</a></p>
+    </section>
+
     <section class="section">
       <h2>What we do</h2>
       <div class="tiles tiles-wide">
