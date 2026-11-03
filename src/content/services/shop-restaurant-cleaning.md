@@ -5,14 +5,14 @@ parent: "commercial-cleaning"
 order: 3
 menuLabel: "Shop and restaurant cleaning"
 title: "Shop & Restaurant Cleaning in Fairview | FreshStart"
-description: "After-hours cleaning for shops, salons, milk tea and food stalls up to 50 sqm in North QC. Twice a week for ₱8,490 a month, all supplies included."
+description: "After-hours cleaning for shops, salons, milk tea and food stalls up to 60 sqm in North QC. Twice a week for ₱8,990 a month, all supplies included."
 h1: "Shop, salon and restaurant cleaning in Fairview and Novaliches"
 hero: "Open every morning to a clean shop: floors, counters, glass and CR done after closing."
-priceFrom: "₱8,490 a month"
+priceFrom: "From ₱8,990 a month"
 gbp: "Shop and restaurant cleaning (Commercial cleaning service)"
 serviceType: "Retail cleaning"
-offerPrice: 8490
-faqs: [{"q": "Can you come after we close at 9 PM?", "a": "Yes, until 10 PM at the normal rate; after 10 PM add 15%."}, {"q": "Can I try it first?", "a": "Yes. The first visit is 50% off."}]
+offerPrice: 8990
+faqs: [{"q": "Can you clean before we open or after we close?", "a": "Yes, between 7–9 AM or 6–9 PM, Monday to Friday. Weekend visits are by appointment at +30%."}, {"q": "Can I try it first?", "a": "Yes. The first visit is 50% off."}]
 related: ["commercial-cleaning/office-cleaning", "commercial-cleaning"]
 draft: false
 ---
@@ -28,4 +28,4 @@ Floors scrubbed and mopped (hair, grease and sticky spills treated), counters an
 
 ## Price
 
-**Shop Clean, up to 50 sqm, 2× a week: ₱8,490 a month.** Larger shops use our office prices.
+**Business Tidy, up to 60 sqm, 2× a week: ₱8,990 a month.** Fresh (3× a week) ₱14,490; Spotless (5× a week) ₱23,690. Larger shops: [see the business membership plans](/membership/#business).

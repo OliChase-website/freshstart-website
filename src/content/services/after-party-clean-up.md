@@ -34,4 +34,4 @@ draft: false
 | Large | 51–100 | 4 cleaners, 4 h | 300 pieces | ₱8,990 |
 | Clubhouse or function room | Up to 150 | 4–5 cleaners | Quoted | From ₱9,990 |
 
-**Surcharges:** Sundays and special days +30%, regular holidays +100%, after 10 PM +15%. Extra 100 dishes ₱390. **Before and After:** a clean before the party plus the clean-up after, 10% off both.
+**Weekend slots available.** **Surcharges:** weekends (Saturday and Sunday) and special non-working days +30%, regular holidays +100%, after 10 PM +15%. Extra 100 dishes ₱390. **Before and After:** a clean before the party plus the clean-up after, 10% off both.

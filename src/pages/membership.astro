@@ -1,0 +1,249 @@
+---
+// FreshStart Membership: app-style pricing page. All plan data lives in src/data/membership.json.
+import Base from '../layouts/Base.astro';
+import CtaButtons from '../components/CtaButtons.astro';
+import SiteImage from '../components/SiteImage.astro';
+import Faqs from '../components/Faqs.astro';
+import biz from '../data/business.json';
+import m from '../data/membership.json';
+import { messengerLink } from '../lib/contact';
+
+const peso = (n: number) => '₱' + Math.round(n).toLocaleString('en-PH');
+const priced = m.plans.filter((p: any) => !p.survey);
+// Price shown for each pay-ahead option: the monthly equivalent and what is billed up front.
+const ahead = (price: number) =>
+  Object.fromEntries(
+    m.payAhead.map((o) => [o.key, { mo: peso(price * (1 - o.discount)), billed: peso(price * (1 - o.discount) * o.months) }]),
+  );
+const ask = (plan: string, tier: string) =>
+  messengerLink(`Hi FreshStart! I'm interested in the ${plan} ${tier} membership. My ${plan === 'Home' ? 'home is' : 'space is'}: `) ?? '/book/';
+const site = Astro.site!;
+const url = new URL('/membership/', site).href;
+
+const offers = priced.flatMap((p: any) =>
+  p.tiers.map((t: any) => ({
+    '@type': 'Offer',
+    name: `${p.name} ${t.name} membership`,
+    description: `${t.visits}. ${t.summary}`,
+    price: Math.min(...t.prices.map((x: any) => x[0])),
+    priceCurrency: 'PHP',
+    priceSpecification: {
+      '@type': 'UnitPriceSpecification',
+      minPrice: Math.min(...t.prices.map((x: any) => x[0])),
+      maxPrice: Math.max(...t.prices.map((x: any) => x[0])),
+      priceCurrency: 'PHP',
+      unitText: 'MONTH',
+    },
+    availability: 'https://schema.org/InStock',
+    url,
+  })),
+);
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'FreshStart Membership: recurring cleaning plans',
+    serviceType: 'Recurring cleaning service subscription',
+    provider: { '@id': new URL('/#business', site).href },
+    areaServed: biz.areas.map((a) => ({ '@type': 'Place', name: `${a}, ${biz.city}` })),
+    hasOfferCatalog: { '@type': 'OfferCatalog', name: 'Membership plans', itemListElement: offers },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: m.faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: new URL('/', site).href },
+      { '@type': 'ListItem', position: 2, name: 'Membership', item: url },
+    ],
+  },
+];
+---
+<Base
+  title="Cleaning Membership Plans in Quezon City | FreshStart"
+  description="Monthly cleaning memberships for homes and businesses in Fairview, Lagro and Novaliches, QC. Tidy, Fresh and Spotless plans from ₱2,590 a month."
+  jsonLd={jsonLd}
+  ogSlot="og-default"
+  ctaMessage="Hi FreshStart! I'd like to ask about a cleaning membership."
+>
+  <section class="hero">
+    <div class="wrap">
+      <p class="crumbs"><a href="/">Home</a> / Membership</p>
+      <h1>Cleaning membership plans in Quezon City</h1>
+      <p>Pick a plan, get a fixed cleaning day, and pay one monthly price. Three levels for homes, businesses and industrial sites, Tidy, Fresh and Spotless, plus a Custom plan you build yourself. Transport and cleaning supplies are included in {biz.areas.join(', ')}.</p>
+      <p class="pricetag">Homes from ₱2,590 a month <small>· businesses from ₱8,990</small></p>
+    </div>
+  </section>
+
+  <div class="founding">
+    <div class="wrap founding-inner">
+      <strong>Founding members</strong>
+      <span>{m.founding}</span>
+      <a href={messengerLink("Hi FreshStart! I'd like a founding-member spot for a Home membership.") ?? '/book/'} data-track="click_messenger">Claim a founding spot</a>
+    </div>
+  </div>
+
+  <nav class="plan-nav" aria-label="Membership plans">
+    <div class="wrap">
+      <a href="#home">Home</a><a href="#business">Business</a><a href="#industrial">Industrial</a><a href="#custom">Custom</a><a href="#compare">Compare perks</a>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <div class="bill-toggle" role="group" aria-label="Billing" hidden>
+      <span class="bill-label">Pay</span>
+      {m.payAhead.map((o, i) => (
+        <button type="button" data-bill={o.key} aria-pressed={i === 0 ? 'true' : 'false'}>
+          {o.label}{o.note && <small> · {o.note}</small>}
+        </button>
+      ))}
+    </div>
+
+    {m.plans.map((p: any) => (
+      <section class="plan" id={p.id}>
+        <div class={p.image ? 'plan-head split' : 'plan-head'}>
+          <div>
+            <h2>{p.name} membership</h2>
+            <p class="plan-for">For {p.for.toLowerCase()}.</p>
+            {p.survey && (
+              <p class="survey-note">Industrial plans start with a free site survey and a safety induction. We quote your site after the survey, and delivery starts once your site plan is agreed. Prices depend on floor area, surface and equipment needed.</p>
+            )}
+          </div>
+          {p.image && <SiteImage slot={p.image} class="section-img" sizes="(min-width: 900px) 540px, 100vw" />}
+        </div>
+
+        <div class="tiers">
+          {p.tiers.map((t: any) => {
+            const from = t.prices ? Math.min(...t.prices.map((x: any) => x[0])) : null;
+            const a = from ? ahead(from) : null;
+            return (
+              <article class={`tier${t.popular ? ' tier-popular' : ''}`}>
+                {t.popular && <p class="tier-badge">Most popular</p>}
+                <h3 class="tier-name">{p.name} {t.name}</h3>
+                <p class="tier-visits">{t.visits}</p>
+                {a ? (
+                  <p class="tier-price">
+                    <span class="tier-from">from</span>{' '}
+                    <span class="tier-amt" data-m={a.m.mo} data-6={a['6'].mo} data-12={a['12'].mo}>{a.m.mo}</span>
+                    <span class="tier-per">/month</span>
+                    <span class="tier-billed" data-m="" data-6={`${a['6'].billed} billed every 6 months`} data-12={`${a['12'].billed} billed yearly`}></span>
+                  </p>
+                ) : (
+                  <p class="tier-price"><span class="tier-amt tier-amt-sm">Price after a free site survey</span></p>
+                )}
+                <p class="tier-summary">{t.summary}</p>
+                <ul class="checks tier-perks">
+                  {t.perks.map((x: string) => <li>{x}</li>)}
+                </ul>
+                <details class="tier-sizes">
+                  <summary>{t.prices ? 'Price by size' : 'Crew by size'}</summary>
+                  <div class="table-box"><table>
+                    <tr><th>{p.sizeLabel}</th><th>Crew × hours a visit</th>{t.prices && <th>Monthly</th>}</tr>
+                    {p.bands.map((b: string, i: number) => (
+                      <tr>
+                        <td>{b}</td>
+                        <td>{t.prices ? t.prices[i][1] : t.crew[i]}</td>
+                        {t.prices && (() => { const x = ahead(t.prices[i][0]); return <td class="p"><span data-m={x.m.mo} data-6={x['6'].mo} data-12={x['12'].mo}>{x.m.mo}</span></td>; })()}
+                      </tr>
+                    ))}
+                  </table></div>
+                  <p class="muted">{p.aboveBands}</p>
+                </details>
+                <p class="tier-term">{t.term}</p>
+                <p class="tier-cta">
+                  <a class={`btn ${t.popular ? 'btn-primary' : 'btn-secondary'}`} href={ask(p.name, t.name)} data-track="click_messenger">
+                    {p.survey ? 'Book a site survey' : `Choose ${t.name}`}
+                  </a>
+                </p>
+              </article>
+            );
+          })}
+        </div>
+        {p.addOn && <p class="muted">{p.addOn}</p>}
+        <p class="muted"><strong>Not included:</strong> {p.notIncluded}</p>
+      </section>
+    ))}
+
+    <section class="plan" id="custom">
+      <h2>Custom membership</h2>
+      <p class="plan-for">For any mix of days, times, crew size and cleaning types that doesn't fit a plan above. You choose the cleaner-hours; the price is those hours times a published rate, so every quote can be checked in a minute.</p>
+      <div class="custom-grid">
+        <div>
+          <h3>Rate per cleaner-hour</h3>
+          <div class="table-box"><table>
+            <tr><th>Type of work</th><th>Rate</th></tr>
+            {m.custom.rates.map(([k, v]) => <tr><td>{k}</td><td class="p">{peso(v as number)}</td></tr>)}
+          </table></div>
+          <h3>Minimum monthly spend</h3>
+          <ul class="pricelist">
+            {m.custom.minimums.map(([k, v]) => <li><span class="k">{k}</span><span>{peso(v as number)}</span></li>)}
+          </ul>
+        </div>
+        <div>
+          <h3>How it works</h3>
+          <ul class="checks custom-rules">
+            {m.custom.volume.map((x) => <li>{x}</li>)}
+            {m.custom.rules.map((x) => <li>{x}</li>)}
+          </ul>
+        </div>
+      </div>
+      <h3>Examples</h3>
+      <div class="table-box"><table>
+        <tr><th>Customer</th><th>What they chose</th><th>Calculation</th><th>Monthly</th></tr>
+        {m.custom.examples.map((e) => <tr><td>{e.who}</td><td>{e.chose}</td><td>{e.calc}</td><td class="p">{peso(e.price)}</td></tr>)}
+      </table></div>
+      <p class="cta-row"><a class="btn btn-primary" href={ask('Custom', 'plan')} data-track="click_messenger">Build my Custom plan</a><a class="btn btn-secondary" href="/book/" data-track="click_book">Send my details</a></p>
+    </section>
+
+    <section class="section">
+      <h2>How membership works</h2>
+      <ol class="steps">
+        <li><strong>Choose a plan and tier.</strong> Tell us your home size or floor area; we confirm the crew and hours after photos or a short walk-through.</li>
+        <li><strong>Get a fixed schedule.</strong> Same day every week or two (or every weekday for businesses), Monday to Friday, 7 AM to 9 PM.</li>
+        <li><strong>Pay monthly in advance by GCash or bank transfer,</strong> by the 25th for the next month. Pay 6 months ahead to save 5%, or 12 months to save 10%.</li>
+        <li><strong>Skip or move a visit free with 24 hours' notice.</strong> Later changes, or no access on arrival, cost ₱300 and the visit counts as used.</li>
+        <li><strong>Stay as long as it helps.</strong> Home Tidy and Fresh are month to month; Home Spotless, Business and Custom have a 3-month minimum, Industrial 6 months.</li>
+      </ol>
+    </section>
+
+    <section class="section" id="compare">
+      <h2>Compare perks</h2>
+      <div class="table-box"><table class="perks-table">
+        <tr><th>Perk</th>{m.tiers.map((t) => <th>{t}</th>)}</tr>
+        {m.perks.map((r) => <tr><td>{r[0]}</td><td>{r[1]}</td><td>{r[2]}</td><td>{r[3]}</td></tr>)}
+      </table></div>
+      <p class="muted">Supplies means our cleaning chemicals, cloths and tools. Consumables like tissue, hand soap and garbage bags are supplied by you or billed at cost.</p>
+    </section>
+
+    <Faqs faqs={m.faqs} heading="Membership questions" />
+  </div>
+
+  <section class="band">
+    <div class="wrap">
+      <h2>Start your membership</h2>
+      <p>Message us your plan, home size or floor area and preferred day. We confirm your schedule and first visit, usually within the hour during business hours.</p>
+      <p class="cta-row"><CtaButtons callLabel message="Hi FreshStart! I'd like to start a cleaning membership." /></p>
+    </div>
+  </section>
+
+  <script is:inline>
+    // Monthly / 6 months / 12 months toggle. Without JavaScript the toggle stays hidden and monthly prices show.
+    (function () {
+      var bar = document.querySelector('.bill-toggle');
+      if (!bar) return;
+      bar.hidden = false;
+      var set = function (k) {
+        bar.querySelectorAll('button').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.bill === k ? 'true' : 'false'); });
+        document.querySelectorAll('[data-m]').forEach(function (el) { el.textContent = el.getAttribute('data-' + k) || ''; });
+      };
+      bar.addEventListener('click', function (e) {
+        var b = e.target.closest('button');
+        if (b) set(b.dataset.bill);
+      });
+    })();
+  </script>
+</Base>

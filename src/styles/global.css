@@ -170,3 +170,67 @@ main:has(> .band:last-child){padding-bottom:0}
 img.hero-img,.hero-img img{display:block;width:100%;height:auto;border-radius:var(--r-md);aspect-ratio:4/3;object-fit:cover}
 @media (min-width:900px){.hero-grid{grid-template-columns:1.1fr .9fr}}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+/* Membership (app-style pricing page) */
+.founding{background:var(--apricot);color:var(--ink)}
+.founding-inner{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center;padding-top:12px;padding-bottom:12px;font-size:15px}
+.founding-inner strong{font-family:var(--display);font-size:1.05rem}
+.founding-inner a{color:var(--ink);font-weight:700}
+.plan-nav{position:sticky;top:0;z-index:4;background:var(--surface);box-shadow:0 1px 0 var(--line)}
+.plan-nav .wrap{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-top:10px;padding-bottom:10px}
+.plan-nav .wrap::-webkit-scrollbar{display:none}
+.plan-nav a{flex:none;text-decoration:none;font-weight:700;font-size:15px;color:var(--lagoon);background:var(--lagoon-soft);border-radius:var(--pill);padding:8px 16px}
+.plan-nav a:hover{background:var(--mint)}
+html{scroll-padding-top:72px}
+.bill-toggle{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:28px 0 0}
+.bill-toggle[hidden]{display:none}
+.bill-label{font-weight:700;margin-right:4px}
+.bill-toggle button{font:inherit;font-weight:700;font-size:15px;min-height:44px;padding:8px 16px;border-radius:var(--pill);border:0;background:var(--surface);color:var(--lagoon);box-shadow:0 0 0 1px var(--line);cursor:pointer}
+.bill-toggle button small{font-weight:600;color:var(--apricot-ink)}
+.bill-toggle button[aria-pressed="true"]{background:var(--lagoon);color:#fff;box-shadow:none}
+.bill-toggle button[aria-pressed="true"] small{color:var(--mint)}
+.plan{padding-top:12px}
+.plan-head{align-items:center}
+.plan-for{color:var(--ink-muted);max-width:640px;margin-top:-.2em}
+.survey-note{background:var(--lagoon-soft);border-radius:var(--r-md);padding:14px 18px;max-width:640px}
+.tiers{display:grid;gap:18px;margin:24px 0 14px}
+@media (min-width:900px){.tiers{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}}
+.tier{position:relative;background:var(--surface);border-radius:var(--r-md);box-shadow:0 0 0 1px var(--line);padding:22px 20px 20px;display:flex;flex-direction:column}
+.tier-popular{box-shadow:0 0 0 3px var(--lagoon)}
+.tier-badge{position:absolute;top:-13px;left:20px;margin:0;background:var(--apricot);color:var(--ink);font-size:13px;font-weight:700;padding:3px 12px;border-radius:var(--pill)}
+.tier-name{margin:0;font-size:1.45rem}
+.tier-visits{margin:2px 0 0;font-weight:600;color:var(--lagoon)}
+.tier-price{margin:14px 0 4px;display:flex;flex-wrap:wrap;align-items:baseline;gap:0 6px}
+.tier-from{font-size:14px;color:var(--ink-muted)}
+.tier-amt{font-family:var(--display);font-weight:800;font-size:2.2rem;line-height:1.1;color:var(--ink)}
+.tier-amt-sm{font-size:1.25rem}
+.tier-per{font-size:15px;color:var(--ink-muted)}
+.tier-billed{flex-basis:100%;font-size:14px;color:var(--apricot-ink);font-weight:600;min-height:0}
+.tier-billed:empty{display:none}
+.tier-summary{margin:6px 0 14px;color:var(--ink-muted);font-size:15px}
+.tier-perks{grid-template-columns:1fr!important;gap:10px!important;font-size:15px}
+.tier-sizes{margin:16px 0 0;border-top:1px solid var(--line);padding-top:10px}
+.tier-sizes summary{cursor:pointer;font-weight:700;color:var(--lagoon);min-height:32px}
+.tier-sizes table{font-size:14px;margin-top:8px}
+.tier-sizes td,.tier-sizes th{padding:8px 10px}
+.tier-term{font-size:14px;color:var(--ink-muted);margin:12px 0 0}
+.tier-cta{margin:14px 0 0}
+.tier-cta .btn{width:100%}
+.custom-grid{display:grid;gap:8px 40px}
+@media (min-width:900px){.custom-grid{grid-template-columns:1fr 1fr}}
+.custom-rules{grid-template-columns:1fr!important;gap:10px!important}
+.pricelist .k{font-family:var(--sans);font-weight:600;color:var(--ink)}
+.perks-table td:first-child{font-weight:600}
+.perks-table{min-width:640px}
+
+/* Membership teaser on the home page */
+.mtiers{display:grid;gap:14px;margin:18px 0 6px}
+@media (min-width:760px){.mtiers{grid-template-columns:repeat(3,1fr)}}
+.mtier{display:block;background:var(--surface);border-radius:var(--r-md);box-shadow:0 0 0 1px var(--line);padding:18px;text-decoration:none;color:var(--ink);position:relative}
+.mtier:hover{box-shadow:0 0 0 2px var(--lagoon);color:var(--ink)}
+.mtier.tier-popular{box-shadow:0 0 0 3px var(--lagoon)}
+.mtier strong{display:block;font-family:var(--display);font-size:1.3rem}
+.mtier span{display:block;color:var(--ink-muted);font-size:15px}
+.mtier b{display:block;font-family:var(--display);font-size:1.4rem;color:var(--apricot-ink);margin-top:6px}
+.callout{background:var(--surface);border-left:0;border-radius:var(--r-md);box-shadow:0 0 0 2px var(--apricot);padding:16px 20px;margin:24px 0}
+.callout p{margin:0}

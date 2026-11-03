@@ -11,7 +11,7 @@ const hasHero = findImage('book-hero') !== null;
     {hasHero && <div class="phero-media"><SiteImage slot="book-hero" priority sizes="(min-width: 900px) 50vw, 100vw" /></div>}
     <div class={hasHero ? 'wrap phero-body' : 'wrap'}>
       <h1>Book a clean or get a quote</h1>
-      <p class="phero-lede">Message us and we reply with a fixed price, usually within the hour, Monday to Friday between 7 AM and 9 PM. We clean in Fairview, North Fairview, Greater Lagro, Kaligayahan, Pasong Putik and Novaliches, Quezon City.</p>
+      <p class="phero-lede">Message us and we reply with a fixed price, usually within the hour, Monday to Friday between 7 AM and 9 PM. Weekend slots are available by appointment (+30%). We clean in Fairview, North Fairview, Greater Lagro, Kaligayahan, Pasong Putik and Novaliches, Quezon City.</p>
       <p class="cta-row">
         <CtaButtons callLabel dark />
         {contact.bookingForm && <a class="btn btn-secondary" href={contact.bookingForm} style="background:#0A3834" data-track="click_booking_form">Booking form</a>}
@@ -28,6 +28,12 @@ const hasHero = findImage('book-hero') !== null;
       <li>Your preferred date and time</li>
       <li>3 to 5 photos of the area</li>
     </ol>
+    <h2>Payment and cancellation</h2>
+    <ul>
+      <li>Pay by GCash or bank transfer to FreshStart Cleaning Co. Our cleaners never collect cash.</li>
+      <li>A 50% deposit locks the date for jobs ₱3,000 and up, and for first-time move-out or post-renovation jobs. Smaller jobs pay in full on completion.</li>
+      <li>Cancel or move a booking free up to 24 hours before. Later cancellations cost ₱300.</li>
+    </ul>
     <p>Not sure of the price yet? Every rate is on our <a href="/prices/">prices page</a>.</p>
     <p class="muted">We use your details only to quote, schedule and invoice your job. See our <a href="/privacy/">privacy notice</a>.</p>
     <!-- The enquiry form connects to the AI enquiry automation once its endpoint exists (set the action URL). -->

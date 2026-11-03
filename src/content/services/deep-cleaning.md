@@ -12,7 +12,7 @@ priceFrom: "From ₱2,890"
 gbp: "Deep cleaning (House cleaning service)"
 serviceType: "Deep cleaning"
 offerPrice: 2890
-faqs: [{"q": "How long does it take?", "a": "2.5 to 4.5 hours depending on size, with 2 or 3 cleaners."}, {"q": "Can you remove all stains?", "a": "Most. Old stains on grout, tiles or fabric may lighten rather than disappear; we tell you before we start."}, {"q": "How often should I deep clean?", "a": "Every 3 to 6 months, or once before starting a regular plan."}, {"q": "Do I need a deposit?", "a": "Yes, 50% for jobs over ₱3,000, by GCash, Maya or bank transfer."}]
+faqs: [{"q": "How long does it take?", "a": "2.5 to 4.5 hours depending on size, with 2 or 3 cleaners."}, {"q": "Can you remove all stains?", "a": "Most. Old stains on grout, tiles or fabric may lighten rather than disappear; we tell you before we start."}, {"q": "How often should I deep clean?", "a": "Every 3 to 6 months, or once before starting a regular plan."}, {"q": "Do I need a deposit?", "a": "Yes: a 50% deposit by GCash or bank transfer locks the date for jobs ₱3,000 and up, and for first-time move-out or post-renovation jobs; smaller jobs pay in full on completion."}]
 related: ["house-cleaning/regular-cleaning-plans", "house-cleaning/move-in-move-out-cleaning"]
 draft: false
 ---

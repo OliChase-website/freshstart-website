@@ -12,7 +12,7 @@ priceFrom: "From ₱2,590 a month"
 gbp: "Regular cleaning plans (House cleaning service)"
 serviceType: "Regular house cleaning"
 offerPrice: 2590
-faqs: [{"q": "Is it the same cleaner every time?", "a": "Yes. Your plan is assigned to one team. If someone is sick, the team lead sends a trained replacement and tells you first."}, {"q": "Can I skip a visit?", "a": "You can move one visit a month to another day. Skipped visits are not refunded."}, {"q": "Is there a contract?", "a": "No lock-in. Plans run month to month; tell us 7 days before your next billing date to stop."}, {"q": "Can I change what is cleaned?", "a": "Yes. Swap tasks within the visit time, or add time at ₱450 per cleaner-hour."}]
+faqs: [{"q": "Is it the same cleaner every time?", "a": "Yes. Your plan is assigned to one team. If someone is sick, the team lead sends a trained replacement and tells you first."}, {"q": "Can I skip a visit?", "a": "Move or skip a visit free with 24 hours' notice. On the weekly (Fresh) plan, 1 missed visit a month rolls over to the next month."}, {"q": "Is there a contract?", "a": "No lock-in. Plans run month to month; tell us 7 days before your next billing date to stop."}, {"q": "Can I change what is cleaned?", "a": "Yes. Swap tasks within the visit time, or add time at ₱450 per cleaner-hour."}]
 related: ["house-cleaning/deep-cleaning", "house-cleaning/move-in-move-out-cleaning"]
 draft: false
 ---
@@ -32,14 +32,17 @@ Busy households, working couples, families with kids, pets or elderly parents, a
 
 ## Prices (per month, transport included)
 
-| Home size | Crew and time per visit | Every 2 weeks | Every week |
+These plans are our **Home Tidy** (every 2 weeks) and **Home Fresh** (every week) memberships. For a weekly clean plus a deep clean every 3 months, see **Home Spotless** on our [membership plans page](/membership/).
+
+| Home size | Crew and time per visit | Tidy: every 2 weeks | Fresh: every week |
 |---|---|---|---|
 | Studio, up to 30 sqm | 1 cleaner, 2 h | ₱2,590 | ₱4,490 |
 | 1 bedroom, 31–45 sqm | 1 cleaner, 2.5 h | ₱2,990 | ₱5,290 |
 | 2 bedrooms or townhouse, 46–80 sqm | 2 cleaners, 2 h | ₱4,690 | ₱7,990 |
 | House, 81–120 sqm | 2 cleaners, 2.5 h | ₱5,590 | ₱9,990 |
+| Large house, 121–200 sqm | 2 cleaners, 3.5 h | ₱7,690 | ₱14,290 |
 
-Billed monthly in advance. Prepay 3 months and save 5%.
+Billed monthly in advance by GCash or bank transfer. Pay 6 months ahead and save 5%, or 12 months ahead and save 10%. [Compare all membership plans](/membership/).
 
 ## How we do it
 
