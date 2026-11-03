@@ -6,7 +6,6 @@
     { "key": "12", "label": "12 months", "months": 12, "discount": 0.10, "note": "save 10%" }
   ],
   "tiers": ["Tidy", "Fresh", "Spotless"],
-  "founding": "First 20 founding members: first visit 20% off and your monthly price locked for 12 months.",
   "plans": [
     {
       "id": "home",
@@ -154,7 +153,7 @@
     { "q": "How do I cancel, and do I get a refund?", "a": "Home Tidy and Fresh run month to month: tell us 7 days before your next billing date. Home Spotless, Business and Custom have a 3-month minimum, Industrial 6 months; after that, Business and Industrial give 30 days' notice. Unused prepaid months are refunded: what you paid minus the months used at the full monthly price. Delivered visits aren't refunded; the free re-clean covers quality." },
     { "q": "Can I get a weekend visit?", "a": "Our regular hours are Monday to Friday, 7 AM to 9 PM. Weekend visits are by appointment at +30%. Home Spotless includes 1 weekend visit a month at no surcharge, and Business Spotless includes a Saturday visit swap." },
     { "q": "Can I upgrade or switch plans?", "a": "Upgrade any time, from your next visit; the difference for the rest of the month is billed pro rata. Downgrades and plan switches start on your next billing date." },
-    { "q": "What does the price lock mean?", "a": "The first 20 founding members, and anyone who pays 12 months ahead, keep their monthly price for 12 months. Other monthly members get 60 days' notice of any price change." },
+    { "q": "What does the price lock mean?", "a": "Members who pay 12 months ahead keep their monthly price for the whole 12 months. Other monthly members get 60 days' notice of any price change." },
     { "q": "What isn't included?", "a": "Heavy build-up (we do a one-time deep clean first), post-renovation dust and work above 2 metres in homes; medical waste, sterile areas, grease traps and hood ducts in businesses; hazardous waste, chemical spills, confined spaces and inside production machinery on industrial sites." },
     { "q": "Which areas do you cover?", "a": "Fairview, North Fairview, Greater Lagro, Kaligayahan, Pasong Putik and Novaliches, Quezon City, with transport included. Elsewhere in Quezon City add ₱200 a visit." }
   ]
