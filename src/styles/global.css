@@ -172,10 +172,6 @@ img.hero-img,.hero-img img{display:block;width:100%;height:auto;border-radius:va
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 
 /* Membership (app-style pricing page) */
-.founding{background:var(--apricot);color:var(--ink)}
-.founding-inner{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center;padding-top:12px;padding-bottom:12px;font-size:15px}
-.founding-inner strong{font-family:var(--display);font-size:1.05rem}
-.founding-inner a{color:var(--ink);font-weight:700}
 .plan-nav{position:sticky;top:0;z-index:4;background:var(--surface);box-shadow:0 1px 0 var(--line)}
 .plan-nav .wrap{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-top:10px;padding-bottom:10px}
 .plan-nav .wrap::-webkit-scrollbar{display:none}
