@@ -11,7 +11,7 @@ priceFrom: "From ₱8,990 a month"
 gbp: "Commercial cleaning service; Janitorial service"
 serviceType: "Commercial cleaning service"
 offerPrice: 8990
-faqs: [{"q": "Can you clean before we open or after we close?", "a": "Yes, between 7–9 AM or 6–9 PM, Monday to Friday. Weekend visits are +30%; visits after 10 PM add 15% for night-shift pay."}, {"q": "Who supplies tissue, soap and trash bags?", "a": "You do, or we supply them at cost plus 15%."}, {"q": "Is there a long contract?", "a": "3 months minimum, then month to month with 30 days' notice."}, {"q": "Can you provide a full-time janitor on site?", "a": "We provide scheduled visits. For daily needs, choose Spotless (5 visits a week) or a Custom plan."}, {"q": "Do you issue official invoices?", "a": "Yes, BIR-registered invoices every month, and we accept Form 2307."}]
+faqs: [{"q": "Can you clean before we open or after we close?", "a": "Yes, between 7–9 AM or 6–9 PM, Monday to Friday. Weekend visits are by appointment at +30%."}, {"q": "Who supplies tissue, soap and trash bags?", "a": "You do, or we supply them at cost plus 15%."}, {"q": "Is there a long contract?", "a": "3 months minimum, then month to month with 30 days' notice."}, {"q": "Can you provide a full-time janitor on site?", "a": "We provide scheduled visits. For daily needs, choose Spotless (5 visits a week) or a Custom plan."}, {"q": "Do you issue official invoices?", "a": "Yes, BIR-registered invoices every month, and we accept Form 2307."}]
 related: ["house-cleaning"]
 draft: false
 ---

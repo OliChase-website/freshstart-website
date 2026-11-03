@@ -12,7 +12,7 @@ priceFrom: "From ₱8,990 a month"
 gbp: "Shop and restaurant cleaning (Commercial cleaning service)"
 serviceType: "Retail cleaning"
 offerPrice: 8990
-faqs: [{"q": "Can you come after we close at 9 PM?", "a": "Yes, until 10 PM at the normal rate; after 10 PM add 15%."}, {"q": "Can I try it first?", "a": "Yes. The first visit is 50% off."}]
+faqs: [{"q": "Can you clean before we open or after we close?", "a": "Yes, between 7–9 AM or 6–9 PM, Monday to Friday. Weekend visits are by appointment at +30%."}, {"q": "Can I try it first?", "a": "Yes. The first visit is 50% off."}]
 related: ["commercial-cleaning/office-cleaning", "commercial-cleaning"]
 draft: false
 ---
