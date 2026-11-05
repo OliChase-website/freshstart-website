@@ -5,10 +5,10 @@ parent: "house-cleaning"
 order: 1
 menuLabel: "Regular cleaning plans"
 title: "Weekly & Biweekly House Cleaning, QC | FreshStart"
-description: "Same trained team every week or two for your house, condo or apartment in Fairview, Lagro and Novaliches. From ₱2,590 a month, transport included."
+description: "Same trained team every week or two for your house, condo or apartment in Fairview, Lagro and Novaliches. From ₱1,990 a month, transport included."
 h1: "Weekly and biweekly house cleaning plans in Fairview, Lagro and Novaliches"
 hero: "The same team on the same day every week or two, with a checklist and a photo report."
-priceFrom: "From ₱2,590 a month"
+priceFrom: "From ₱1,990 a month"
 gbp: "Regular cleaning plans (House cleaning service)"
 serviceType: "Regular house cleaning"
 offerPrice: 2590
@@ -36,11 +36,11 @@ These plans are our **Home Tidy** (every 2 weeks) and **Home Fresh** (every week
 
 | Home size | Crew and time per visit | Tidy: every 2 weeks | Fresh: every week |
 |---|---|---|---|
-| Studio, up to 30 sqm | 1 cleaner, 2 h | ₱2,590 | ₱4,490 |
-| 1 bedroom, 31–45 sqm | 1 cleaner, 2.5 h | ₱2,990 | ₱5,290 |
-| 2 bedrooms or townhouse, 46–80 sqm | 2 cleaners, 2 h | ₱4,690 | ₱7,990 |
-| House, 81–120 sqm | 2 cleaners, 2.5 h | ₱5,590 | ₱9,990 |
-| Large house, 121–200 sqm | 2 cleaners, 3.5 h | ₱7,690 | ₱14,290 |
+| Studio, up to 30 sqm | 1 cleaner, 2 h | ₱1,990 | ₱3,990 |
+| 1 bedroom, 31–45 sqm | 1 cleaner, 2.5 h | ₱2,490 | ₱4,790 |
+| 2 bedrooms or townhouse, 46–80 sqm | 2 cleaners, 2 h | ₱3,990 | ₱7,490 |
+| House, 81–120 sqm | 2 cleaners, 2.5 h | ₱4,990 | ₱9,190 |
+| Large house, 121–200 sqm | 2 cleaners, 3.5 h | ₱6,990 | ₱12,690 |
 
 Billed monthly in advance by GCash or bank transfer. Pay 6 months ahead and save 5%, or 12 months ahead and save 10%. [Compare all membership plans](/membership/).
 
