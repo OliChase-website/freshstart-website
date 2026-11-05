@@ -21,7 +21,7 @@
           "visits": "2 visits a month (every 2 weeks)",
           "summary": "Our standard checklist every two weeks.",
           "term": "Month to month, 7 days' notice",
-          "prices": [[2590, "1 × 2 h"], [2990, "1 × 2.5 h"], [4690, "2 × 2 h"], [5590, "2 × 2.5 h"], [7690, "2 × 3.5 h"]],
+          "prices": [[1990, "1 × 2 h"], [2490, "1 × 2.5 h"], [3990, "2 × 2 h"], [4990, "2 × 2.5 h"], [6990, "2 × 3.5 h"]],
           "perks": ["Kitchen, bathrooms, dusting, beds, floors and bins every visit", "Fixed day, 3-hour arrival window", "Same crew when available", "Free re-clean within 48 hours", "Before-and-after photo report", "Pause up to 2 weeks a year"]
         },
         {
@@ -30,7 +30,7 @@
           "visits": "4 visits a month (every week)",
           "summary": "The standard checklist every week, with the same crew.",
           "term": "Month to month, 7 days' notice",
-          "prices": [[4490, "1 × 2 h"], [5290, "1 × 2.5 h"], [7990, "2 × 2 h"], [9990, "2 × 2.5 h"], [14290, "2 × 3.5 h"]],
+          "prices": [[3990, "1 × 2 h"], [4790, "1 × 2.5 h"], [7490, "2 × 2 h"], [9190, "2 × 2.5 h"], [12690, "2 × 3.5 h"]],
           "perks": ["Everything in Tidy, every week", "Same crew, fixed day and start time", "Free re-clean within 24 hours", "1 missed visit rolls over to next month", "10% off add-ons; extra jobs booked within 48 hours", "Pause up to 4 weeks a year"]
         },
         {
@@ -79,7 +79,7 @@
           "perks": ["Everything in Fresh, every weekday", "Quarterly deep clean (floor scrub, high-level dusting)", "Saturday visit swap at no surcharge", "Named coordinator, reply within 1 hour", "Same-day re-clean if reported by 12 noon", "2 rollover visits"]
         }
       ],
-      "addOn": "Clinics: sanitation add-on ₱2,000 a month (a monthly deep disinfection of every room).",
+      "addOn": "Small shop or clinic up to 60 sqm? Ask about Business Lite: 1 visit a week, 1 cleaner × 2 h, ₱4,290 a month (3 months minimum). Clinics: sanitation add-on ₱2,000 a month (a monthly deep disinfection of every room).",
       "notIncluded": "Medical waste, instruments, sterile areas, sharps, grease traps and hood ducts, work above 3 metres. Tissue, hand soap and garbage bags are supplied by you or billed at cost."
     },
     {
@@ -121,13 +121,13 @@
     }
   ],
   "custom": {
-    "rates": [["Home, standard cleaning", 560], ["Business, standard cleaning", 500], ["Deep or specialised cleaning (any property)", 620], ["Industrial heavy-duty, with machines (after a site survey)", 750]],
+    "rates": [["Home, standard cleaning", 490], ["Business, standard cleaning", 500], ["Deep or specialised cleaning (any property)", 560], ["Industrial heavy-duty, with machines (after a site survey)", 750]],
     "minimums": [["Home", 2500], ["Business", 8000], ["Industrial", 15000]],
     "volume": ["40–79 cleaner-hours a month: 5% off", "80 cleaner-hours a month and up: 8% off"],
     "rules": ["At least 2 visits a month and 2 cleaner-hours a visit", "Any weekday slot, 7 AM–9 PM; Saturday or Sunday +30%; regular holidays +100%", "1–3 cleaners, 2–6 hours a visit, confirmed after a walk-through or photos", "Add-ons at member prices (10% off)", "Fresh-level perks: same crew, 24-hour re-clean, 1 rollover visit", "Pay-ahead and volume discounts combined are capped at 12%"],
     "examples": [
-      { "who": "Family, 3-bedroom house in Lagro", "chose": "Thursday 5–8 PM, 2 cleaners × 3 h every week, plus a 3-hour deep task by 2 cleaners once a month", "calc": "24 h × ₱560 + 6 h × ₱620", "price": 17190 },
-      { "who": "Restaurant, 120 sqm on Regalado Avenue", "chose": "1 cleaner × 2 h after closing, Monday to Saturday, plus kitchen degreasing by 2 cleaners × 3 h a month", "calc": "43.3 h × ₱500 + 8.7 Saturday h × ₱650 + 6 h × ₱620, less 5% volume discount", "price": 29490 }
+      { "who": "Family, 3-bedroom house in Lagro", "chose": "Thursday 5–8 PM, 2 cleaners × 3 h every week, plus a 3-hour deep task by 2 cleaners once a month", "calc": "24 h × ₱490 + 6 h × ₱560", "price": 15190 },
+      { "who": "Restaurant, 120 sqm on Regalado Avenue", "chose": "1 cleaner × 2 h after closing, Monday to Saturday, plus kitchen degreasing by 2 cleaners × 3 h a month", "calc": "43.3 h × ₱500 + 8.7 Saturday h × ₱650 + 6 h × ₱560, less 5% volume discount", "price": 29190 }
     ]
   },
   "perks": [
@@ -145,8 +145,9 @@
     ["Cleaning supplies", "Included", "Included", "Included"]
   ],
   "faqs": [
-    { "q": "How do I pay for a membership?", "a": "Monthly in advance by GCash or bank transfer, due by the 25th for the next month. Your first month is paid before the first visit. Every payment gets a BIR-registered invoice; our cleaners never collect cash." },
+    { "q": "How do I pay for a membership?", "a": "By GCash or bank transfer. Pay monthly by the 25th, or in two halves on the 15th and 30th (each half paid before the visits it covers). Your first payment is made before the first visit. Every payment gets a BIR-registered invoice; our cleaners never collect cash." },
     { "q": "Can I pay ahead for a discount?", "a": "Yes. Pay 6 months ahead and save 5%, or 12 months ahead and save 10%. Yearly payers keep their price for the whole term." },
+    { "q": "Is there a discount if my neighbours join?", "a": "Yes, the Kapitbahay rate: 8% off Home Tidy and 5% off Home Fresh when 2 or more homes on the same street or subdivision share a cleaning day. It replaces the pay-ahead discount." },
     { "q": "Can I skip or move a visit?", "a": "Yes, free with 24 hours' notice. Later than that, or if we can't get in on arrival, there is a ₱300 fee and the visit counts as used." },
     { "q": "What happens to a missed visit?", "a": "Fresh members can roll over 1 visit and Spotless members 2 visits, to be used by the end of the next month. Tidy visits don't roll over." },
     { "q": "Can I pause my membership?", "a": "Yes, for travel or holidays: up to 2 weeks a year on Tidy, 4 weeks on Fresh and 6 weeks on Spotless. Paused weeks are credited to your next bill." },
